@@ -16,4 +16,5 @@ INPUT(
 ./release/moc_product_info_model.o
 ./release/moc_krys_application.o
 ./release/moc_Ribbon.o
+./release/moc_PwhManagementRibbon.o
 );

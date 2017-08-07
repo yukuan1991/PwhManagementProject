@@ -34,9 +34,10 @@ public:
             PwhManagementMain->setObjectName(QStringLiteral("PwhManagementMain"));
         PwhManagementMain->resize(400, 300);
         verticalLayout = new QVBoxLayout(PwhManagementMain);
-        verticalLayout->setSpacing(6);
+        verticalLayout->setSpacing(0);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
         rib = new PwhManagementRibbon(PwhManagementMain);
         rib->setObjectName(QStringLiteral("rib"));
 

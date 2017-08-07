@@ -18,7 +18,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
@@ -37,11 +36,6 @@ public:
     QFrame *line;
     QWidget *widget_video_player;
     QVBoxLayout *verticalLayout;
-    QHBoxLayout *horizontalLayout;
-    QPushButton *button_modify;
-    QSpacerItem *horizontalSpacer;
-    QPushButton *button_add_std;
-    QPushButton *button_detail;
     QHBoxLayout *horizontalLayout_2;
     QGridLayout *gridLayout;
     QLabel *label_2;
@@ -103,31 +97,6 @@ public:
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        button_modify = new QPushButton(PwhManagement);
-        button_modify->setObjectName(QStringLiteral("button_modify"));
-
-        horizontalLayout->addWidget(button_modify);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
-        button_add_std = new QPushButton(PwhManagement);
-        button_add_std->setObjectName(QStringLiteral("button_add_std"));
-        button_add_std->setEnabled(false);
-
-        horizontalLayout->addWidget(button_add_std);
-
-        button_detail = new QPushButton(PwhManagement);
-        button_detail->setObjectName(QStringLiteral("button_detail"));
-
-        horizontalLayout->addWidget(button_detail);
-
-
-        verticalLayout->addLayout(horizontalLayout);
-
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         gridLayout = new QGridLayout();
@@ -139,6 +108,7 @@ public:
 
         label_10 = new QLabel(PwhManagement);
         label_10->setObjectName(QStringLiteral("label_10"));
+        label_10->setMinimumSize(QSize(100, 0));
 
         gridLayout->addWidget(label_10, 0, 1, 1, 1);
 
@@ -149,6 +119,7 @@ public:
 
         label_11 = new QLabel(PwhManagement);
         label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setMinimumSize(QSize(100, 0));
 
         gridLayout->addWidget(label_11, 0, 3, 1, 1);
 
@@ -245,9 +216,6 @@ public:
     {
         PwhManagement->setWindowTitle(QApplication::translate("PwhManagement", "Form", Q_NULLPTR));
         label->setText(QApplication::translate("PwhManagement", "\344\272\247\345\223\201\344\277\241\346\201\257\347\273\223\346\236\204\346\240\221:", Q_NULLPTR));
-        button_modify->setText(QApplication::translate("PwhManagement", "\344\277\256\346\224\271", Q_NULLPTR));
-        button_add_std->setText(QApplication::translate("PwhManagement", "\346\267\273\345\212\240\345\210\260\346\240\207\345\207\206\345\267\245\346\227\266", Q_NULLPTR));
-        button_detail->setText(QApplication::translate("PwhManagement", "\350\257\246\347\273\206\344\277\241\346\201\257", Q_NULLPTR));
         label_2->setText(QApplication::translate("PwhManagement", "\346\211\200\345\261\236\344\272\247\345\223\201\345\220\215\347\247\260\357\274\232", Q_NULLPTR));
         label_10->setText(QString());
         label_9->setText(QApplication::translate("PwhManagement", "\346\265\213\351\207\217\346\227\245\346\234\237\357\274\232", Q_NULLPTR));
