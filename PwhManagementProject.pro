@@ -37,7 +37,10 @@ SOURCES += main.cc\
     Qt-Utils/encryption.cpp \
     Qt-Utils/tinyxml2.cpp \
     interface_control/Ribbon.cc \
-    interface_control/PwhManagementRibbon.cc
+    interface_control/PwhManagementRibbon.cc \
+    interface_control/global_widget.cpp \
+    view/table_view.cpp \
+    data_veryfication.cpp
 
 HEADERS  += PwhManagementMain.h \
     Pwh/PwhManagement.h \
@@ -52,10 +55,15 @@ HEADERS  += PwhManagementMain.h \
     Qt-Utils/stl_extension.hpp \
     Qt-Utils/tinyxml2.h \
     interface_control/Ribbon.h \
-    interface_control/PwhManagementRibbon.h
+    interface_control/PwhManagementRibbon.h \
+    interface_control/global_widget.h \
+    view/table_view.h \
+    data_veryfication.h
 
 FORMS    += pwhmanagementmain.ui \
-    Pwh/pwhmanagement.ui
+    Pwh/pwhmanagement.ui \
+    interface_control/global_widget.ui
 
 LIBS += -lboost_filesystem
 LIBS += -lboost_system
+LIBS += -lboost_thread

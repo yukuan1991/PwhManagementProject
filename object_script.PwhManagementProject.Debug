@@ -10,6 +10,9 @@ INPUT(
 ./debug/tinyxml2.o
 ./debug/Ribbon.o
 ./debug/PwhManagementRibbon.o
+./debug/global_widget.o
+./debug/table_view.o
+./debug/data_veryfication.o
 ./debug/moc_PwhManagementMain.o
 ./debug/moc_PwhManagement.o
 ./debug/moc_json_model.o
@@ -17,4 +20,6 @@ INPUT(
 ./debug/moc_krys_application.o
 ./debug/moc_Ribbon.o
 ./debug/moc_PwhManagementRibbon.o
+./debug/moc_global_widget.o
+./debug/moc_table_view.o
 );

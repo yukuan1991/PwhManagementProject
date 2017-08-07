@@ -10,6 +10,9 @@ INPUT(
 ./release/tinyxml2.o
 ./release/Ribbon.o
 ./release/PwhManagementRibbon.o
+./release/global_widget.o
+./release/table_view.o
+./release/data_veryfication.o
 ./release/moc_PwhManagementMain.o
 ./release/moc_PwhManagement.o
 ./release/moc_json_model.o
@@ -17,4 +20,6 @@ INPUT(
 ./release/moc_krys_application.o
 ./release/moc_Ribbon.o
 ./release/moc_PwhManagementRibbon.o
+./release/moc_global_widget.o
+./release/moc_table_view.o
 );
