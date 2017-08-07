@@ -21,9 +21,10 @@ class PwhManagement : public QWidget
 public:
     explicit PwhManagement(QWidget *parent = 0);
     ~PwhManagement();
+public:
+    void on_button_detail_clicked();
 private slots:
     void on_tree_product_clicked(const QModelIndex& index);
-    void on_button_detail_clicked();
 private:
     void show_data (const json& data, const QString& path);
     void data_extraction (const QString&);

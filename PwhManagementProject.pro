@@ -82,7 +82,8 @@ HEADERS  += PwhManagementMain.h \
     video/video_form_model.h \
     video/video_delegate.h \
     Model/stdtime_model.h \
-    delegate/stdtime_delegate.h
+    delegate/stdtime_delegate.h \
+    arithmetic_resource.hpp
 
 FORMS    += pwhmanagementmain.ui \
     Pwh/pwhmanagement.ui \

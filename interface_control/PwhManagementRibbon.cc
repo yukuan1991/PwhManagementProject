@@ -31,6 +31,8 @@ PwhManagementRibbon::PwhManagementRibbon(QWidget *parent)
 
         setupTab(info, "查看");
     }
+
+    initConn();
 }
 
 void PwhManagementRibbon::initConn()

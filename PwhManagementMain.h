@@ -20,9 +20,12 @@ public:
 private:
     void fileNew();
 private:
+    void detailedInfo();
+private:
     void initConn();
 private:
     not_null<PwhManagement*> createWindow();
+    PwhManagement* activeWindow();
 private:
     Ui::PwhManagementMain *ui;
 };

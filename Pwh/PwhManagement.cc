@@ -110,6 +110,7 @@ void PwhManagement::data_extraction(const QString &path)
 
     if (j_file)
     {
+        current_info_ = *j_file;
         this->show_data (j_file.value (), path);
     }
 }
