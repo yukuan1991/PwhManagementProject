@@ -31,7 +31,6 @@ PwhManagement::~PwhManagement()
 
 void PwhManagement::on_tree_product_clicked(const QModelIndex &index)
 {
-    qDebug() << "on_tree_product_clicked";
     const auto path = index.data (QFileSystemModel::FilePathRole);
     assert (path.type () == QVariant::String);
 
@@ -65,8 +64,16 @@ void PwhManagement::on_tree_product_clicked(const QModelIndex &index)
 
 }
 
+void PwhManagement::on_button_detail_clicked()
+{
+    dlg_.init_info (current_info_);
+
+    dlg_.exec ();
+}
+
 void PwhManagement::show_data(const nlohmann::json &data, const QString &path)
 {
+    qDebug() << "show_data";
     QFileInfo path_info {path};
     auto capp_path = path_info.dir ();
     QFileInfo capp_info {capp_path.absolutePath ()};
@@ -74,6 +81,9 @@ void PwhManagement::show_data(const nlohmann::json &data, const QString &path)
     auto product_dir = capp_info.dir ();
     QFileInfo product_info {product_dir.absolutePath ()};
     QString product_name = product_info.fileName ();
+
+    qDebug() << capp_name;
+    qDebug() << product_name;
 
     ui->label_capp->setText (capp_name);
     ui->label_product->setText (product_name);
@@ -93,50 +103,20 @@ void PwhManagement::data_extraction(const QString &path)
 {
     assert (QFile::exists (path));
     std::string system_path = unicode_to_system (path.toStdString ());
-    std::weak_ptr<bool> wp = alive_;
 
-    go [=] ()
+    auto data_json = krys::read_all (system_path);
+
+    auto j_file = stdtime_data_veryfication(data_json->data ());
+
+    if (j_file)
     {
-        std::function<void ()> response;
-        BOOST_SCOPE_EXIT_ALL (&)
-        {
-            call_after response;
-        };
-
-        auto data_json = krys::read_all (system_path);
-        assert (data_json);
-
-        auto j_file = stdtime_data_veryfication(data_json->data ());
-
-        response = [] ()
-        {
-        };
-
-        if (!j_file)
-        {
-            return;
-        }
-
-        current_info_ = *j_file;
-
-        auto tmp = [=] (json _j_file, QString _path)
-        {
-            if (wp.expired ()) return;
-//            ui->button_modify->setEnabled (true);
-//            ui->button_detail->setEnabled (true);
-//            ui->button_add_to_std->setEnabled (true);
-            if (video_update ())
-            {
-                this->show_data (_j_file, _path);
-            }
-        };
-
-        response = std::bind (tmp, std::move (*j_file), std::move (path));
-    };
+        this->show_data (j_file.value (), path);
+    }
 }
 
 void PwhManagement::show_attachment(const nlohmann::json &data)
 {
+    qDebug() << "show_attachment";
     struct name_map
     {
         QLabel* label;
@@ -161,6 +141,7 @@ void PwhManagement::show_attachment(const nlohmann::json &data)
 
 void PwhManagement::set_label_for_data(const nlohmann::json &data, const char *name, QLabel *label)
 {
+    qDebug() << "set_label_for_data()";
     assert (name); assert (label);
     const auto& sub_data = data[name];
     assert (sub_data.is_string ());
@@ -206,9 +187,10 @@ void PwhManagement::clear_info()
     ui->label_unit->clear ();
     ui->label_product->clear ();
     ui->label_station->clear ();
+
 }
 
 bool PwhManagement::video_update()
 {
-
+    return true;
 }

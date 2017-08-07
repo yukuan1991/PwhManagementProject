@@ -11,7 +11,7 @@ PwhManagementRibbon::PwhManagementRibbon(QWidget *parent)
 
         b.add("新增", QPixmap("png/新增.png"), add_);
         b.add("修改", QPixmap("png/修改.png"), modify_);
-        b.add("删除", QPixmap("png/清除.png"), delete_);
+        b.add("删除", QPixmap("png/删除.png"), delete_);
         b.set_title("报表管理");
 
         edit[0] = ::move(b);
@@ -24,12 +24,12 @@ PwhManagementRibbon::PwhManagementRibbon(QWidget *parent)
 
         ButtonCell b;
 
-        b.add("详细信息", QPixmap("png/详细信息.png"));
+        b.add("详细信息", QPixmap("png/详细信息.png"), detailedInfo_);
         b.set_title("信息");
 
         info[0] = ::move(b);
 
-        setupTab(info, "报表");
+        setupTab(info, "查看");
     }
 }
 

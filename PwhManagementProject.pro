@@ -40,7 +40,19 @@ SOURCES += main.cc\
     interface_control/PwhManagementRibbon.cc \
     interface_control/global_widget.cpp \
     view/table_view.cpp \
-    data_veryfication.cpp
+    data_veryfication.cpp \
+    interface_control/detail_dlg.cpp \
+    interface_control/data_widget.cpp \
+    interface_control/form_widget.cpp \
+    video/video_form_split.cpp \
+    interface_control/analysis_detail_widget.cpp \
+    Model/pts_model.cpp \
+    Model/pts_delegate.cpp \
+    code_edit.cpp \
+    video/video_form_model.cpp \
+    video/video_delegate.cpp \
+    Model/stdtime_model.cpp \
+    delegate/stdtime_delegate.cpp
 
 HEADERS  += PwhManagementMain.h \
     Pwh/PwhManagement.h \
@@ -58,12 +70,29 @@ HEADERS  += PwhManagementMain.h \
     interface_control/PwhManagementRibbon.h \
     interface_control/global_widget.h \
     view/table_view.h \
-    data_veryfication.h
+    data_veryfication.h \
+    interface_control/detail_dlg.h \
+    interface_control/data_widget.h \
+    interface_control/form_widget.h \
+    video/video_form_split.h \
+    interface_control/analysis_detail_widget.h \
+    Model/pts_model.h \
+    Model/pts_delegate.h \
+    code_edit.h \
+    video/video_form_model.h \
+    video/video_delegate.h \
+    Model/stdtime_model.h \
+    delegate/stdtime_delegate.h
 
 FORMS    += pwhmanagementmain.ui \
     Pwh/pwhmanagement.ui \
-    interface_control/global_widget.ui
+    interface_control/global_widget.ui \
+    interface_control/detail_dlg.ui \
+    interface_control/data_widget.ui \
+    interface_control/form_widget.ui \
+    interface_control/analysis_detail_widget.ui
 
 LIBS += -lboost_filesystem
 LIBS += -lboost_system
 LIBS += -lboost_thread
+LIBS += -lboost_regex

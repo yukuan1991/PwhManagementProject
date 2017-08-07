@@ -29,7 +29,6 @@ public:
 
 private slots:
     void on_table_global_clicked(const QModelIndex &index);
-
 signals:
     void table_clicked (const QModelIndex& index);
 
