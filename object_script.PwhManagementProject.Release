@@ -25,6 +25,10 @@ INPUT(
 ./release/video_delegate.o
 ./release/stdtime_model.o
 ./release/stdtime_delegate.o
+./release/modify_product_dlg.o
+./release/new_item_dlg.o
+./release/video_widget.o
+./release/progress_label.o
 ./release/moc_PwhManagementMain.o
 ./release/moc_PwhManagement.o
 ./release/moc_json_model.o
@@ -41,4 +45,9 @@ INPUT(
 ./release/moc_pts_model.o
 ./release/moc_video_form_model.o
 ./release/moc_stdtime_model.o
+./release/moc_modify_product_dlg.o
+./release/moc_new_item_dlg.o
+./release/moc_video_widget.o
+./release/moc_video_player.o
+./release/moc_progress_label.o
 );

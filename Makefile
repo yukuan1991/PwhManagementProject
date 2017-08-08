@@ -61,279 +61,281 @@ release-install: FORCE
 release-uninstall: FORCE
 	$(MAKE) -f $(MAKEFILE).Release uninstall
 
-Makefile: PwhManagementProject.pro ../../qt-build/qt/mkspecs/win32-g++/qmake.conf ../../qt-build/qt/mkspecs/features/spec_pre.prf \
-		../../qt-build/qt/mkspecs/qdevice.pri \
-		../../qt-build/qt/mkspecs/features/device_config.prf \
-		../../qt-build/qt/mkspecs/common/g++-base.conf \
-		../../qt-build/qt/mkspecs/common/windows-gles.conf \
-		../../qt-build/qt/mkspecs/common/sanitize.conf \
-		../../qt-build/qt/mkspecs/common/gcc-base.conf \
-		../../qt-build/qt/mkspecs/qconfig.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_accessibility_support_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_av.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_av_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_avwidgets.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_avwidgets_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_axbase.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_axbase_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_axcontainer.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_axcontainer_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_axserver.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_axserver_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_bluetooth.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_bluetooth_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_bootstrap_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_charts.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_charts_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_concurrent.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_concurrent_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_contacts.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_contacts_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_core.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_core_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_dbus.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_dbus_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_docgallery.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_docgallery_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_fb_support_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_fontdatabase_support_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_gamepad.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_gamepad_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_gui.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_gui_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_network.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_network_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_nfc.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_nfc_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_opengl.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_opengl_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_openglextensions.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_openglextensions_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_organizer.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_organizer_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_packetprotocol_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_printsupport.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_printsupport_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_publishsubscribe.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_publishsubscribe_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_purchasing.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_purchasing_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_qml.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_qml_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_qmldebug_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_qmldevtools_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_qmltest.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_qmltest_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_quick.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_quick_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_quickparticles_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_quickwidgets.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_quickwidgets_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_remoteobjects.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_remoteobjects_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_repparser.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_repparser_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_scxml.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_scxml_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_serialbus.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_serialbus_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_serialport.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_serialport_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_serviceframework.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_serviceframework_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_sql.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_sql_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_svg.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_svg_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_testlib.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_testlib_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_theme_support_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_versit.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_versit_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_versitorganizer.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_versitorganizer_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_websockets.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_websockets_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_widgets.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_widgets_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_xlsx.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_xlsx_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_xml.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_xml_private.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_xmlpatterns.pri \
-		../../qt-build/qt/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
-		../../qt-build/qt/mkspecs/features/qt_functions.prf \
-		../../qt-build/qt/mkspecs/features/qt_config.prf \
-		../../qt-build/qt/mkspecs/win32-g++/qmake.conf \
-		../../qt-build/qt/mkspecs/features/spec_post.prf \
+Makefile: PwhManagementProject.pro D:/qt-build/qt/mkspecs/win32-g++/qmake.conf D:/qt-build/qt/mkspecs/features/spec_pre.prf \
+		D:/qt-build/qt/mkspecs/qdevice.pri \
+		D:/qt-build/qt/mkspecs/features/device_config.prf \
+		D:/qt-build/qt/mkspecs/common/g++-base.conf \
+		D:/qt-build/qt/mkspecs/common/windows-gles.conf \
+		D:/qt-build/qt/mkspecs/common/sanitize.conf \
+		D:/qt-build/qt/mkspecs/common/gcc-base.conf \
+		D:/qt-build/qt/mkspecs/qconfig.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_accessibility_support_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_av.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_av_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_avwidgets.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_avwidgets_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_axbase.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_axbase_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_axcontainer.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_axcontainer_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_axserver.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_axserver_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_bluetooth.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_bluetooth_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_charts.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_charts_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_concurrent.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_concurrent_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_contacts.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_contacts_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_core.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_core_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_dbus.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_dbus_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_devicediscovery_support_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_docgallery.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_docgallery_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_fb_support_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_fontdatabase_support_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_gamepad.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_gamepad_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_gui.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_gui_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_network.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_network_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_nfc.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_nfc_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_opengl.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_opengl_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_openglextensions.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_openglextensions_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_organizer.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_organizer_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_packetprotocol_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_platformcompositor_support_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_printsupport.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_printsupport_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_publishsubscribe.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_publishsubscribe_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_purchasing.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_purchasing_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_qml.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_qml_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_qmldebug_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_qmldevtools_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_qmltest.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_qmltest_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_quick.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_quick_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_quickparticles_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_quickwidgets.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_quickwidgets_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_remoteobjects.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_remoteobjects_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_repparser.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_repparser_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_scxml.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_scxml_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_serialbus.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_serialbus_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_serialport.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_serialport_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_serviceframework.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_serviceframework_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_sql.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_sql_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_svg.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_svg_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_testlib.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_testlib_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_theme_support_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_versit.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_versit_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_versitorganizer.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_versitorganizer_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_websockets.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_websockets_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_widgets.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_widgets_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_xml.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_xml_private.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_xmlpatterns.pri \
+		D:/qt-build/qt/mkspecs/modules/qt_lib_xmlpatterns_private.pri \
+		D:/qt-build/qt/mkspecs/features/qt_functions.prf \
+		D:/qt-build/qt/mkspecs/features/qt_config.prf \
+		D:/qt-build/qt/mkspecs/win32-g++/qmake.conf \
+		D:/qt-build/qt/mkspecs/features/spec_post.prf \
 		.qmake.stash \
-		../../qt-build/qt/mkspecs/features/exclusive_builds.prf \
-		../../qt-build/qt/mkspecs/features/toolchain.prf \
-		../../qt-build/qt/mkspecs/features/default_pre.prf \
-		../../qt-build/qt/mkspecs/features/win32/default_pre.prf \
-		../../qt-build/qt/mkspecs/features/resolve_config.prf \
-		../../qt-build/qt/mkspecs/features/exclusive_builds_post.prf \
-		../../qt-build/qt/mkspecs/features/default_post.prf \
-		../../qt-build/qt/mkspecs/features/qml_debug.prf \
-		../../qt-build/qt/mkspecs/features/precompile_header.prf \
-		../../qt-build/qt/mkspecs/features/warn_on.prf \
-		../../qt-build/qt/mkspecs/features/qt.prf \
-		../../qt-build/qt/mkspecs/features/resources.prf \
-		../../qt-build/qt/mkspecs/features/moc.prf \
-		../../qt-build/qt/mkspecs/features/win32/opengl.prf \
-		../../qt-build/qt/mkspecs/features/uic.prf \
-		../../qt-build/qt/mkspecs/features/qmake_use.prf \
-		../../qt-build/qt/mkspecs/features/file_copies.prf \
-		../../qt-build/qt/mkspecs/features/win32/windows.prf \
-		../../qt-build/qt/mkspecs/features/testcase_targets.prf \
-		../../qt-build/qt/mkspecs/features/exceptions.prf \
-		../../qt-build/qt/mkspecs/features/yacc.prf \
-		../../qt-build/qt/mkspecs/features/lex.prf \
+		D:/qt-build/qt/mkspecs/features/exclusive_builds.prf \
+		D:/qt-build/qt/mkspecs/features/toolchain.prf \
+		D:/qt-build/qt/mkspecs/features/default_pre.prf \
+		D:/qt-build/qt/mkspecs/features/win32/default_pre.prf \
+		D:/qt-build/qt/mkspecs/features/resolve_config.prf \
+		D:/qt-build/qt/mkspecs/features/exclusive_builds_post.prf \
+		D:/qt-build/qt/mkspecs/features/default_post.prf \
+		D:/qt-build/qt/mkspecs/features/qml_debug.prf \
+		D:/qt-build/qt/mkspecs/features/precompile_header.prf \
+		D:/qt-build/qt/mkspecs/features/warn_on.prf \
+		D:/qt-build/qt/mkspecs/features/qt.prf \
+		D:/qt-build/qt/mkspecs/features/resources.prf \
+		D:/qt-build/qt/mkspecs/features/moc.prf \
+		D:/qt-build/qt/mkspecs/features/win32/opengl.prf \
+		D:/qt-build/qt/mkspecs/features/uic.prf \
+		D:/qt-build/qt/mkspecs/features/av.prf \
+		D:/qt-build/qt/mkspecs/features/avwidgets.prf \
+		D:/qt-build/qt/mkspecs/features/qmake_use.prf \
+		D:/qt-build/qt/mkspecs/features/file_copies.prf \
+		D:/qt-build/qt/mkspecs/features/win32/windows.prf \
+		D:/qt-build/qt/mkspecs/features/testcase_targets.prf \
+		D:/qt-build/qt/mkspecs/features/exceptions.prf \
+		D:/qt-build/qt/mkspecs/features/yacc.prf \
+		D:/qt-build/qt/mkspecs/features/lex.prf \
 		PwhManagementProject.pro \
-		../../qt-build/qt/lib/qtmaind.prl \
-		../../qt-build/qt/lib/Qt5Widgets.prl \
-		../../qt-build/qt/lib/Qt5Gui.prl \
-		../../qt-build/qt/lib/Qt5Core.prl
+		D:/qt-build/qt/lib/qtmaind.prl \
+		D:/qt-build/qt/lib/Qt5OpenGL.prl \
+		D:/qt-build/qt/lib/Qt5Widgets.prl \
+		D:/qt-build/qt/lib/Qt5Gui.prl \
+		D:/qt-build/qt/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile PwhManagementProject.pro -spec win32-g++ CONFIG+=qml_debug
-../../qt-build/qt/mkspecs/features/spec_pre.prf:
-../../qt-build/qt/mkspecs/qdevice.pri:
-../../qt-build/qt/mkspecs/features/device_config.prf:
-../../qt-build/qt/mkspecs/common/g++-base.conf:
-../../qt-build/qt/mkspecs/common/windows-gles.conf:
-../../qt-build/qt/mkspecs/common/sanitize.conf:
-../../qt-build/qt/mkspecs/common/gcc-base.conf:
-../../qt-build/qt/mkspecs/qconfig.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_accessibility_support_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_av.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_av_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_avwidgets.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_avwidgets_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_axbase.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_axbase_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_axcontainer.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_axcontainer_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_axserver.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_axserver_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_bluetooth.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_bluetooth_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_bootstrap_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_charts.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_charts_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_concurrent.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_concurrent_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_contacts.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_contacts_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_core.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_core_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_dbus.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_dbus_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_docgallery.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_docgallery_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_fb_support_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_fontdatabase_support_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_gamepad.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_gamepad_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_gui.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_gui_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_network.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_network_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_nfc.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_nfc_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_opengl.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_opengl_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_openglextensions.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_openglextensions_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_organizer.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_organizer_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_packetprotocol_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_platformcompositor_support_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_printsupport.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_printsupport_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_publishsubscribe.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_publishsubscribe_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_purchasing.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_purchasing_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_qml.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_qml_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_qmldebug_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_qmldevtools_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_qmltest.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_qmltest_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_quick.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_quick_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_quickparticles_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_quickwidgets.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_quickwidgets_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_remoteobjects.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_remoteobjects_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_repparser.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_repparser_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_scxml.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_scxml_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_serialbus.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_serialbus_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_serialport.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_serialport_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_serviceframework.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_serviceframework_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_sql.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_sql_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_svg.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_svg_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_testlib.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_testlib_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_theme_support_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_versit.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_versit_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_versitorganizer.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_versitorganizer_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_websockets.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_websockets_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_widgets.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_widgets_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_xlsx.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_xlsx_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_xml.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_xml_private.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_xmlpatterns.pri:
-../../qt-build/qt/mkspecs/modules/qt_lib_xmlpatterns_private.pri:
-../../qt-build/qt/mkspecs/features/qt_functions.prf:
-../../qt-build/qt/mkspecs/features/qt_config.prf:
-../../qt-build/qt/mkspecs/win32-g++/qmake.conf:
-../../qt-build/qt/mkspecs/features/spec_post.prf:
+D:/qt-build/qt/mkspecs/features/spec_pre.prf:
+D:/qt-build/qt/mkspecs/qdevice.pri:
+D:/qt-build/qt/mkspecs/features/device_config.prf:
+D:/qt-build/qt/mkspecs/common/g++-base.conf:
+D:/qt-build/qt/mkspecs/common/windows-gles.conf:
+D:/qt-build/qt/mkspecs/common/sanitize.conf:
+D:/qt-build/qt/mkspecs/common/gcc-base.conf:
+D:/qt-build/qt/mkspecs/qconfig.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_accessibility_support_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_av.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_av_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_avwidgets.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_avwidgets_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_axbase.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_axbase_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_axcontainer.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_axcontainer_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_axserver.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_axserver_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_bluetooth.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_bluetooth_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_bootstrap_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_charts.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_charts_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_concurrent.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_concurrent_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_contacts.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_contacts_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_core.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_core_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_dbus.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_dbus_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_devicediscovery_support_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_docgallery.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_docgallery_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_eventdispatcher_support_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_fb_support_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_fontdatabase_support_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_gamepad.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_gamepad_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_gui.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_gui_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_network.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_network_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_nfc.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_nfc_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_opengl.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_opengl_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_openglextensions.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_openglextensions_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_organizer.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_organizer_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_packetprotocol_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_platformcompositor_support_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_printsupport.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_printsupport_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_publishsubscribe.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_publishsubscribe_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_purchasing.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_purchasing_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_qml.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_qml_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_qmldebug_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_qmldevtools_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_qmltest.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_qmltest_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_quick.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_quick_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_quickparticles_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_quickwidgets.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_quickwidgets_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_remoteobjects.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_remoteobjects_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_repparser.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_repparser_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_scxml.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_scxml_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_serialbus.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_serialbus_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_serialport.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_serialport_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_serviceframework.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_serviceframework_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_sql.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_sql_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_svg.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_svg_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_testlib.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_testlib_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_theme_support_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_versit.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_versit_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_versitorganizer.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_versitorganizer_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_websockets.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_websockets_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_widgets.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_widgets_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_xml.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_xml_private.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_xmlpatterns.pri:
+D:/qt-build/qt/mkspecs/modules/qt_lib_xmlpatterns_private.pri:
+D:/qt-build/qt/mkspecs/features/qt_functions.prf:
+D:/qt-build/qt/mkspecs/features/qt_config.prf:
+D:/qt-build/qt/mkspecs/win32-g++/qmake.conf:
+D:/qt-build/qt/mkspecs/features/spec_post.prf:
 .qmake.stash:
-../../qt-build/qt/mkspecs/features/exclusive_builds.prf:
-../../qt-build/qt/mkspecs/features/toolchain.prf:
-../../qt-build/qt/mkspecs/features/default_pre.prf:
-../../qt-build/qt/mkspecs/features/win32/default_pre.prf:
-../../qt-build/qt/mkspecs/features/resolve_config.prf:
-../../qt-build/qt/mkspecs/features/exclusive_builds_post.prf:
-../../qt-build/qt/mkspecs/features/default_post.prf:
-../../qt-build/qt/mkspecs/features/qml_debug.prf:
-../../qt-build/qt/mkspecs/features/precompile_header.prf:
-../../qt-build/qt/mkspecs/features/warn_on.prf:
-../../qt-build/qt/mkspecs/features/qt.prf:
-../../qt-build/qt/mkspecs/features/resources.prf:
-../../qt-build/qt/mkspecs/features/moc.prf:
-../../qt-build/qt/mkspecs/features/win32/opengl.prf:
-../../qt-build/qt/mkspecs/features/uic.prf:
-../../qt-build/qt/mkspecs/features/qmake_use.prf:
-../../qt-build/qt/mkspecs/features/file_copies.prf:
-../../qt-build/qt/mkspecs/features/win32/windows.prf:
-../../qt-build/qt/mkspecs/features/testcase_targets.prf:
-../../qt-build/qt/mkspecs/features/exceptions.prf:
-../../qt-build/qt/mkspecs/features/yacc.prf:
-../../qt-build/qt/mkspecs/features/lex.prf:
+D:/qt-build/qt/mkspecs/features/exclusive_builds.prf:
+D:/qt-build/qt/mkspecs/features/toolchain.prf:
+D:/qt-build/qt/mkspecs/features/default_pre.prf:
+D:/qt-build/qt/mkspecs/features/win32/default_pre.prf:
+D:/qt-build/qt/mkspecs/features/resolve_config.prf:
+D:/qt-build/qt/mkspecs/features/exclusive_builds_post.prf:
+D:/qt-build/qt/mkspecs/features/default_post.prf:
+D:/qt-build/qt/mkspecs/features/qml_debug.prf:
+D:/qt-build/qt/mkspecs/features/precompile_header.prf:
+D:/qt-build/qt/mkspecs/features/warn_on.prf:
+D:/qt-build/qt/mkspecs/features/qt.prf:
+D:/qt-build/qt/mkspecs/features/resources.prf:
+D:/qt-build/qt/mkspecs/features/moc.prf:
+D:/qt-build/qt/mkspecs/features/win32/opengl.prf:
+D:/qt-build/qt/mkspecs/features/uic.prf:
+D:/qt-build/qt/mkspecs/features/av.prf:
+D:/qt-build/qt/mkspecs/features/avwidgets.prf:
+D:/qt-build/qt/mkspecs/features/qmake_use.prf:
+D:/qt-build/qt/mkspecs/features/file_copies.prf:
+D:/qt-build/qt/mkspecs/features/win32/windows.prf:
+D:/qt-build/qt/mkspecs/features/testcase_targets.prf:
+D:/qt-build/qt/mkspecs/features/exceptions.prf:
+D:/qt-build/qt/mkspecs/features/yacc.prf:
+D:/qt-build/qt/mkspecs/features/lex.prf:
 PwhManagementProject.pro:
-../../qt-build/qt/lib/qtmaind.prl:
-../../qt-build/qt/lib/Qt5Widgets.prl:
-../../qt-build/qt/lib/Qt5Gui.prl:
-../../qt-build/qt/lib/Qt5Core.prl:
+D:/qt-build/qt/lib/qtmaind.prl:
+D:/qt-build/qt/lib/Qt5OpenGL.prl:
+D:/qt-build/qt/lib/Qt5Widgets.prl:
+D:/qt-build/qt/lib/Qt5Gui.prl:
+D:/qt-build/qt/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile PwhManagementProject.pro -spec win32-g++ CONFIG+=qml_debug
 

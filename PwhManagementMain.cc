@@ -37,19 +37,39 @@ void PwhManagementMain::detailedInfo()
     w->on_button_detail_clicked();
 }
 
+void PwhManagementMain::modifyClicked()
+{
+    auto w = activeWindow();
+    if(w == nullptr)
+    {
+        return;
+    }
+
+    w->on_button_modify_clicked();
+}
+
 void PwhManagementMain::initConn()
 {
     connect(ui->rib, &PwhManagementRibbon::fileNew, this, &PwhManagementMain::fileNew);
     connect(ui->rib, &PwhManagementRibbon::detailedInfoClicked, this, &PwhManagementMain::detailedInfo);
+    connect(ui->rib, &PwhManagementRibbon::modifyClicked, this, &PwhManagementMain::modifyClicked);
 
 }
 
 not_null<PwhManagement *> PwhManagementMain::createWindow()
 {
     auto ptr_win = make_unique<PwhManagement> ();
+
+    qDebug () << __PRETTY_FUNCTION__ << " " << __LINE__;
     ptr_win->setAttribute(Qt::WA_DeleteOnClose);
+
+    qDebug () << __PRETTY_FUNCTION__ << " " << __LINE__;
     auto w = ui->mdi->addSubWindow(ptr_win.get());
+
+    qDebug () << __PRETTY_FUNCTION__ << " " << __LINE__;
     w->setWindowState(Qt::WindowMaximized);
+    qDebug () << __PRETTY_FUNCTION__ << " " << __LINE__;
+
     return ptr_win.release();
 }
 

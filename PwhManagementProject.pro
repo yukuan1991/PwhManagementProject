@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui avwidgets
 CONFIG   -= c++11
 QMAKE_CXXFLAGS += -std=c++1z
 
@@ -52,7 +52,11 @@ SOURCES += main.cc\
     video/video_form_model.cpp \
     video/video_delegate.cpp \
     Model/stdtime_model.cpp \
-    delegate/stdtime_delegate.cpp
+    delegate/stdtime_delegate.cpp \
+    interface_control/modify_product_dlg.cpp \
+    interface_control/new_item_dlg.cpp \
+    video/video_widget.cpp \
+    video/progress_label.cpp
 
 HEADERS  += PwhManagementMain.h \
     Pwh/PwhManagement.h \
@@ -83,7 +87,12 @@ HEADERS  += PwhManagementMain.h \
     video/video_delegate.h \
     Model/stdtime_model.h \
     delegate/stdtime_delegate.h \
-    arithmetic_resource.hpp
+    arithmetic_resource.hpp \
+    interface_control/modify_product_dlg.h \
+    interface_control/new_item_dlg.h \
+    video/video_widget.h \
+    video/video_player.hpp \
+    video/progress_label.h
 
 FORMS    += pwhmanagementmain.ui \
     Pwh/pwhmanagement.ui \
@@ -91,7 +100,10 @@ FORMS    += pwhmanagementmain.ui \
     interface_control/detail_dlg.ui \
     interface_control/data_widget.ui \
     interface_control/form_widget.ui \
-    interface_control/analysis_detail_widget.ui
+    interface_control/analysis_detail_widget.ui \
+    interface_control/modify_product_dlg.ui \
+    new_file.ui \
+    video/video_widget.ui
 
 LIBS += -lboost_filesystem
 LIBS += -lboost_system

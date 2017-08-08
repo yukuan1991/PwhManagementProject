@@ -21,6 +21,7 @@ private:
     void fileNew();
 private:
     void detailedInfo();
+    void modifyClicked();
 private:
     void initConn();
 private:

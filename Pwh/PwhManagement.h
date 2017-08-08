@@ -23,19 +23,25 @@ public:
     ~PwhManagement();
 public:
     void on_button_detail_clicked();
+    void on_button_modify_clicked();
 private slots:
     void on_tree_product_clicked(const QModelIndex& index);
 private:
-    void show_data (const json& data, const QString& path);
     void data_extraction (const QString&);
-
+    bool video_update ();
+    std::vector <unsigned long long>  make_invalid_time_container (const json& invalid_array);
+    void show_data (const json& data, const QString& path);
     void show_attachment (const json& data);
     static void set_label_for_data (const json& data, const char* name, QLabel* label);
-
     void refresh_global_info (const json& global_data, const QString& method);
+
     void clear_info();
 
-    bool video_update ();
+    void write_to_file (const QString& path, const std::map<QString, QString>&);
+    void refresh_data();
+
+    void set_video_section (const QModelIndex& index);
+
 private:
     std::unique_ptr<product_structure_model> fs_model_ { new product_structure_model };
 
@@ -45,6 +51,7 @@ private:
     QString current_file_name_;
     QString current_method_;
     detail_dlg dlg_;
+    int circulation_ordinal_number_ = -1;
 private:
     Ui::PwhManagement *ui;
 };

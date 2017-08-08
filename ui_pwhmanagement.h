@@ -23,6 +23,7 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "interface_control/global_widget.h"
+#include "video/video_widget.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -35,7 +36,7 @@ public:
     QLabel *label;
     QTreeView *tree_product;
     QFrame *line;
-    QWidget *widget_video_player;
+    video_widget *widget_video_player;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
     QGridLayout *gridLayout;
@@ -86,7 +87,7 @@ public:
 
         verticalLayout_2->addWidget(line);
 
-        widget_video_player = new QWidget(PwhManagement);
+        widget_video_player = new video_widget(PwhManagement);
         widget_video_player->setObjectName(QStringLiteral("widget_video_player"));
 
         verticalLayout_2->addWidget(widget_video_player);

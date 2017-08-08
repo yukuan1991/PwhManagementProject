@@ -36,7 +36,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="widget_video_player" native="true"/>
+        <widget class="video_widget" name="widget_video_player" native="true"/>
        </item>
       </layout>
      </item>
@@ -201,6 +201,12 @@
    <class>global_widget</class>
    <extends>QWidget</extends>
    <header>interface_control/global_widget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>video_widget</class>
+   <extends>QWidget</extends>
+   <header>video/video_widget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
