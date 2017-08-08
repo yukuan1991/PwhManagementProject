@@ -9,9 +9,9 @@ PwhManagementRibbon::PwhManagementRibbon(QWidget *parent)
 
         ButtonCell b;
 
-        b.add("新增", QPixmap("png/新增.png"), add_);
+//        b.add("新增", QPixmap("png/新增.png"), add_);
         b.add("修改", QPixmap("png/修改.png"), modify_);
-        b.add("删除", QPixmap("png/删除.png"), delete_);
+//        b.add("删除", QPixmap("png/删除.png"), delete_);
         b.set_title("报表管理");
 
         edit[0] = ::move(b);
@@ -37,9 +37,9 @@ PwhManagementRibbon::PwhManagementRibbon(QWidget *parent)
 
 void PwhManagementRibbon::initConn()
 {
-    connect(add_, &RibbonTool::clicked, this, &PwhManagementRibbon::addClicked);
+//    connect(add_, &RibbonTool::clicked, this, &PwhManagementRibbon::addClicked);
     connect(modify_, &RibbonTool::clicked, this, &PwhManagementRibbon::modifyClicked);
-    connect(delete_, &RibbonTool::clicked, this, &PwhManagementRibbon::deleteClicked);
+//    connect(delete_, &RibbonTool::clicked, this, &PwhManagementRibbon::deleteClicked);
     connect(detailedInfo_, &RibbonTool::clicked, this, &PwhManagementRibbon::detailedInfoClicked);
 
 }

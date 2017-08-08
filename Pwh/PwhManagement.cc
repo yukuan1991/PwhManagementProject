@@ -73,7 +73,6 @@ void PwhManagement::on_button_detail_clicked()
 
 void PwhManagement::show_data(const nlohmann::json &data, const QString &path)
 {
-    qDebug() << "show_data";
     QFileInfo path_info {path};
     auto capp_path = path_info.dir ();
     QFileInfo capp_info {capp_path.absolutePath ()};
@@ -81,9 +80,6 @@ void PwhManagement::show_data(const nlohmann::json &data, const QString &path)
     auto product_dir = capp_info.dir ();
     QFileInfo product_info {product_dir.absolutePath ()};
     QString product_name = product_info.fileName ();
-
-    qDebug() << capp_name;
-    qDebug() << product_name;
 
     ui->label_capp->setText (capp_name);
     ui->label_product->setText (product_name);
@@ -117,7 +113,6 @@ void PwhManagement::data_extraction(const QString &path)
 
 void PwhManagement::show_attachment(const nlohmann::json &data)
 {
-    qDebug() << "show_attachment";
     struct name_map
     {
         QLabel* label;
@@ -142,7 +137,6 @@ void PwhManagement::show_attachment(const nlohmann::json &data)
 
 void PwhManagement::set_label_for_data(const nlohmann::json &data, const char *name, QLabel *label)
 {
-    qDebug() << "set_label_for_data()";
     assert (name); assert (label);
     const auto& sub_data = data[name];
     assert (sub_data.is_string ());
