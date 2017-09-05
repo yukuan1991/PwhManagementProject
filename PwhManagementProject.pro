@@ -56,7 +56,8 @@ SOURCES += main.cc\
     interface_control/modify_product_dlg.cpp \
     interface_control/new_item_dlg.cpp \
     video/video_widget.cpp \
-    video/progress_label.cpp
+    video/progress_label.cpp \
+    util.cpp
 
 HEADERS  += PwhManagementMain.h \
     Pwh/PwhManagement.h \
@@ -92,7 +93,8 @@ HEADERS  += PwhManagementMain.h \
     interface_control/new_item_dlg.h \
     video/video_widget.h \
     video/video_player.hpp \
-    video/progress_label.h
+    video/progress_label.h \
+    util.h
 
 FORMS    += pwhmanagementmain.ui \
     Pwh/pwhmanagement.ui \
