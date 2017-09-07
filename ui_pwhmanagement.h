@@ -19,6 +19,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -30,8 +31,7 @@ QT_BEGIN_NAMESPACE
 class Ui_PwhManagement
 {
 public:
-    QHBoxLayout *horizontalLayout_4;
-    QHBoxLayout *horizontalLayout_3;
+    QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
     QLabel *label;
     QTreeView *tree_product;
@@ -58,16 +58,15 @@ public:
     QLabel *label_unit;
     QSpacerItem *horizontalSpacer_2;
     global_widget *widget_global;
+    QTableWidget *tableWidget;
 
     void setupUi(QWidget *PwhManagement)
     {
         if (PwhManagement->objectName().isEmpty())
             PwhManagement->setObjectName(QStringLiteral("PwhManagement"));
         PwhManagement->resize(1032, 615);
-        horizontalLayout_4 = new QHBoxLayout(PwhManagement);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout = new QHBoxLayout(PwhManagement);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         label = new QLabel(PwhManagement);
@@ -95,7 +94,7 @@ public:
         verticalLayout_2->setStretch(1, 1);
         verticalLayout_2->setStretch(3, 1);
 
-        horizontalLayout_3->addLayout(verticalLayout_2);
+        horizontalLayout->addLayout(verticalLayout_2);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -200,13 +199,13 @@ public:
 
         verticalLayout->addWidget(widget_global);
 
+        tableWidget = new QTableWidget(PwhManagement);
+        tableWidget->setObjectName(QStringLiteral("tableWidget"));
 
-        horizontalLayout_3->addLayout(verticalLayout);
+        verticalLayout->addWidget(tableWidget);
 
-        horizontalLayout_3->setStretch(0, 1);
-        horizontalLayout_3->setStretch(1, 1);
 
-        horizontalLayout_4->addLayout(horizontalLayout_3);
+        horizontalLayout->addLayout(verticalLayout);
 
 
         retranslateUi(PwhManagement);

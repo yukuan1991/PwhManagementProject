@@ -26,6 +26,7 @@ public:
     void on_button_modify_clicked();
 private slots:
     void on_tree_product_clicked(const QModelIndex& index);
+    void onTreeProductClicked(const QVariant&);
 private:
     void data_extraction (const QString&);
     bool video_update ();

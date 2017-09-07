@@ -57,7 +57,11 @@ SOURCES += main.cc\
     interface_control/new_item_dlg.cpp \
     video/video_widget.cpp \
     video/progress_label.cpp \
-    util.cpp
+    util.cpp \
+    Model/TreeModel.cpp \
+    Model/TreeItem.cpp \
+    interface_control/ModifyProductDlg.cpp \
+    interface_control/AddtoStdDatabaseDlg.cpp
 
 HEADERS  += PwhManagementMain.h \
     Pwh/PwhManagement.h \
@@ -94,7 +98,11 @@ HEADERS  += PwhManagementMain.h \
     video/video_widget.h \
     video/video_player.hpp \
     video/progress_label.h \
-    util.h
+    util.h \
+    Model/TreeModel.h \
+    Model/TreeItem.h \
+    interface_control/ModifyProductDlg.h \
+    interface_control/AddtoStdDatabaseDlg.h
 
 FORMS    += pwhmanagementmain.ui \
     Pwh/pwhmanagement.ui \
@@ -105,7 +113,9 @@ FORMS    += pwhmanagementmain.ui \
     interface_control/analysis_detail_widget.ui \
     interface_control/modify_product_dlg.ui \
     new_file.ui \
-    video/video_widget.ui
+    video/video_widget.ui \
+    interface_control/modifyproductdlg.ui \
+    interface_control/addtostddatabasedlg.ui
 
 LIBS += -lboost_filesystem
 LIBS += -lboost_system

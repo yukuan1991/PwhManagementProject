@@ -3,6 +3,7 @@
 #include <boost/filesystem.hpp>
 #include <boost/range/adaptors.hpp>
 #include <base/io/file/file.hpp>
+#include "interface_control/ModifyProductDlg.h"
 
 void setStyle ()
 {
@@ -33,6 +34,9 @@ int main(int argc, char *argv[])
 
     PwhManagementMain w;
     w.show();
+
+//    ModifyProductDlg dlg;
+//    dlg.show();
 
     return a.exec();
 }

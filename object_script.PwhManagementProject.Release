@@ -29,6 +29,11 @@ INPUT(
 ./release\new_item_dlg.o
 ./release\video_widget.o
 ./release\progress_label.o
+./release\util.o
+./release\TreeModel.o
+./release\TreeItem.o
+./release\ModifyProductDlg.o
+./release\AddtoStdDatabaseDlg.o
 ./release\moc_PwhManagementMain.o
 ./release\moc_PwhManagement.o
 ./release\moc_json_model.o
@@ -50,4 +55,7 @@ INPUT(
 ./release\moc_video_widget.o
 ./release\moc_video_player.o
 ./release\moc_progress_label.o
+./release\moc_TreeModel.o
+./release\moc_ModifyProductDlg.o
+./release\moc_AddtoStdDatabaseDlg.o
 );

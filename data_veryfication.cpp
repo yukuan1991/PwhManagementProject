@@ -21,9 +21,6 @@ static bool video_total_verify (const json& total);
 static bool stddata_total_verify (const json& total_data);
 static bool video_attribute_verify (const json& attribute);
 
-
-
-
 optional<json> stdtime_data_veryfication(const string& file_data)
 try
 {
@@ -52,9 +49,6 @@ catch (...)
 {
     return none;
 }
-
-
-
 
 optional<std::string> stdtime_attachment_veryfication(const json &json_attach)
 {

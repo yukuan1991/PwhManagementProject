@@ -8,6 +8,8 @@
 #include "arithmetic_resource.hpp"
 #include "interface_control/modify_product_dlg.h"
 #include <QMessageBox>
+#include <QJsonDocument>
+#include <interface_control/ModifyProductDlg.h>
 
 #include <QDebug>
 
@@ -41,6 +43,8 @@ PwhManagement::PwhManagement(QWidget *parent) :
     {
         ui->widget_video_player->set_position(end);
     });
+
+//    onTreeProductClicked();
 }
 
 PwhManagement::~PwhManagement()
@@ -83,6 +87,48 @@ void PwhManagement::on_tree_product_clicked(const QModelIndex &index)
 
 }
 
+void PwhManagement::onTreeProductClicked(const QVariant& data)
+{
+    if(data.isNull())
+    {
+        return;
+    }
+/////////////////////////////////////////////////////
+    if(data.toMap()["类型"].toString() == "视频分析法")
+    {
+//        ui->tableWidget->setRowCount(10);
+//        ui->tableWidget->setColumnCount(8);
+//        QStringList list;
+//        list << "作业内容" << "测量时间" << "评比系数" << "基本时间" << "宽放率" << "标准时间" << "增值/非增值" << "操作分类";
+//        ui->tableWidget->setHorizontalHeaderLabels(list);
+//        const auto jsonData = data.toMap()["content"];
+//        const auto workdata = jsonData.toMap()["form"].toMap()["作业内容"].toList();
+//        const auto
+//                for(int i = 0; i < ui->tableWidget->rowCount(); i++)
+//        {
+//            for(int j = 0; j < ui->tableWidget->columnCount(); j++)
+//            {
+
+//            }
+//        }
+    }
+//    else if(QVariant.toMap()["类型"].toString() == "预定工时法")
+//    {
+//          ui->tableWidget->setRowCount(10);
+//          ui->tableWidget->setColumnCount(8);
+//          list << "作业内容" << "预定工时法总代码" << "数量*频次" << "评比系数" << "基本时间" << "宽放率"
+//               << "标准时间" << "增值/非增值" << "操作分类";
+
+//          ui->tableWidget->setHorizontalHeaderLabels(list);
+
+//    }
+//    else if(QVariant.toMap()["类型"].toString() == "标准资料法")
+//    {
+//          list << "作业内容" << "公司内部代码" << "数量*频次" << "基本时间" << "宽放率"
+//               << "标准时间";
+//    }
+}
+
 void PwhManagement::on_button_detail_clicked()
 {
     dlg_.init_info (current_info_);
@@ -92,27 +138,33 @@ void PwhManagement::on_button_detail_clicked()
 
 void PwhManagement::on_button_modify_clicked()
 {
-    modify_product_dlg dlg;
-    std::map<QString, QString> map_info
-    {
-        {
-            {"路径", current_path_},
-            {"工站号", ui->label_station->text ()},
-            {"测量人", ui->label_measure->text ()},
-            {"测量方法", ui->label_measurement->text ()},
-            {"测量日期", ui->label_date->text ()},
-            {"作业员", ui->label_operator->text ()}
-        }
-    };
+    ModifyProductDlg dlg;
 
-    dlg.set_info(map_info);
-    if (QDialog::Accepted == dlg.exec())
+    if(QDialog::Accepted == dlg.exec())
     {
-        auto info = dlg.get_info();
-        auto path = dlg.get_path();
-        write_to_file (path, info);
-        refresh_data();
+        qDebug() << dlg.dump();
     }
+//    modify_product_dlg dlg;
+//    std::map<QString, QString> map_info
+//    {
+//        {
+//            {"路径", current_path_},
+//            {"工站号", ui->label_station->text ()},
+//            {"测量人", ui->label_measure->text ()},
+//            {"测量方法", ui->label_measurement->text ()},
+//            {"测量日期", ui->label_date->text ()},
+//            {"作业员", ui->label_operator->text ()}
+//        }
+//    };
+
+//    dlg.set_info(map_info);
+//    if (QDialog::Accepted == dlg.exec())
+//    {
+//        auto info = dlg.get_info();
+//        auto path = dlg.get_path();
+//        write_to_file (path, info);
+//        refresh_data();
+//    }
 }
 
 void PwhManagement::show_data(const nlohmann::json &data, const QString &path)

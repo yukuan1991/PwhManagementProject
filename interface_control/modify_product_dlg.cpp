@@ -25,7 +25,6 @@ modify_product_dlg::modify_product_dlg(QWidget *parent) :
     connect (ui->combo_product, &QComboBox::currentTextChanged, this, &modify_product_dlg::combo_index_changed);
     connect (ui->combo_capp, &QComboBox::currentTextChanged, this, &modify_product_dlg::combo_index_changed);
     ui->date_edit->setDate(QDate::currentDate());
-
 }
 
 modify_product_dlg::~modify_product_dlg()

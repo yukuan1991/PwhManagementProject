@@ -167,13 +167,13 @@
   <customwidget>
    <class>video_player</class>
    <extends>QWidget</extends>
-   <header location="global">video_player.hpp</header>
+   <header location="global">video/video_player.hpp</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>progress_label</class>
    <extends>QLabel</extends>
-   <header>progress_label.h</header>
+   <header>video/progress_label.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
