@@ -79,7 +79,9 @@ SOURCES       = main.cc \
 		Model\TreeModel.cpp \
 		Model\TreeItem.cpp \
 		interface_control\ModifyProductDlg.cpp \
-		interface_control\AddtoStdDatabaseDlg.cpp debug\moc_PwhManagementMain.cpp \
+		interface_control\AddtoStdDatabaseDlg.cpp \
+		interface_control\widget.cpp \
+		interface_control\JsonTree.cc debug\moc_PwhManagementMain.cpp \
 		debug\moc_PwhManagement.cpp \
 		debug\moc_json_model.cpp \
 		debug\moc_product_info_model.cpp \
@@ -102,7 +104,9 @@ SOURCES       = main.cc \
 		debug\moc_progress_label.cpp \
 		debug\moc_TreeModel.cpp \
 		debug\moc_ModifyProductDlg.cpp \
-		debug\moc_AddtoStdDatabaseDlg.cpp
+		debug\moc_AddtoStdDatabaseDlg.cpp \
+		debug\moc_widget.cpp \
+		debug\moc_JsonTree.cpp
 OBJECTS       = debug/main.o \
 		debug/PwhManagementMain.o \
 		debug/PwhManagement.o \
@@ -138,6 +142,8 @@ OBJECTS       = debug/main.o \
 		debug/TreeItem.o \
 		debug/ModifyProductDlg.o \
 		debug/AddtoStdDatabaseDlg.o \
+		debug/widget.o \
+		debug/JsonTree.o \
 		debug/moc_PwhManagementMain.o \
 		debug/moc_PwhManagement.o \
 		debug/moc_json_model.o \
@@ -161,7 +167,9 @@ OBJECTS       = debug/main.o \
 		debug/moc_progress_label.o \
 		debug/moc_TreeModel.o \
 		debug/moc_ModifyProductDlg.o \
-		debug/moc_AddtoStdDatabaseDlg.o
+		debug/moc_AddtoStdDatabaseDlg.o \
+		debug/moc_widget.o \
+		debug/moc_JsonTree.o
 
 DIST          =  PwhManagementMain.h \
 		Pwh\PwhManagement.h \
@@ -202,7 +210,9 @@ DIST          =  PwhManagementMain.h \
 		Model\TreeModel.h \
 		Model\TreeItem.h \
 		interface_control\ModifyProductDlg.h \
-		interface_control\AddtoStdDatabaseDlg.h main.cc \
+		interface_control\AddtoStdDatabaseDlg.h \
+		interface_control\widget.h \
+		interface_control\JsonTree.h main.cc \
 		PwhManagementMain.cc \
 		Pwh\PwhManagement.cc \
 		Model\json_model.cpp \
@@ -236,7 +246,9 @@ DIST          =  PwhManagementMain.h \
 		Model\TreeModel.cpp \
 		Model\TreeItem.cpp \
 		interface_control\ModifyProductDlg.cpp \
-		interface_control\AddtoStdDatabaseDlg.cpp
+		interface_control\AddtoStdDatabaseDlg.cpp \
+		interface_control\widget.cpp \
+		interface_control\JsonTree.cc
 QMAKE_TARGET  = PwhManagementProject
 DESTDIR        = debug\ #avoid trailing-slash linebreak
 TARGET         = PwhManagementProject.exe
@@ -247,7 +259,7 @@ DESTDIR_TARGET = debug\PwhManagementProject.exe
 first: all
 all: Makefile.Debug  $(DESTDIR_TARGET)
 
-$(DESTDIR_TARGET): ui_pwhmanagementmain.h ui_pwhmanagement.h ui_global_widget.h ui_detail_dlg.h ui_data_widget.h ui_form_widget.h ui_analysis_detail_widget.h ui_modify_product_dlg.h ui_new_file.h ui_video_widget.h ui_modifyproductdlg.h ui_addtostddatabasedlg.h $(OBJECTS) 
+$(DESTDIR_TARGET): ui_pwhmanagementmain.h ui_pwhmanagement.h ui_global_widget.h ui_detail_dlg.h ui_data_widget.h ui_form_widget.h ui_analysis_detail_widget.h ui_modify_product_dlg.h ui_new_file.h ui_video_widget.h ui_modifyproductdlg.h ui_addtostddatabasedlg.h ui_widget.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) object_script.PwhManagementProject.Debug  $(LIBS)
 
 qmake: FORCE
@@ -256,10 +268,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) PwhManagementProject.zip $(SOURCES) $(DIST) PwhManagementProject.pro ..\..\..\qt-build\qt\mkspecs\features\spec_pre.prf ..\..\..\qt-build\qt\mkspecs\qdevice.pri ..\..\..\qt-build\qt\mkspecs\features\device_config.prf ..\..\..\qt-build\qt\mkspecs\common\g++-base.conf ..\..\..\qt-build\qt\mkspecs\common\windows-gles.conf ..\..\..\qt-build\qt\mkspecs\common\sanitize.conf ..\..\..\qt-build\qt\mkspecs\common\gcc-base.conf ..\..\..\qt-build\qt\mkspecs\qconfig.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_av.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_av_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_avwidgets.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_avwidgets_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axbase.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axserver.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_charts.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_charts_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_contacts.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_contacts_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_core.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_core_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_dbus.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_docgallery.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_docgallery_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_gui.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_network.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_network_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_nfc.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_opengl.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_organizer.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_organizer_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_publishsubscribe.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_publishsubscribe_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_purchasing.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_purchasing_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qml.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quick.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_repparser.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_scxml.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serialport.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serviceframework.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serviceframework_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_sql.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_svg.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_testlib.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_versit.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_versit_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_versitorganizer.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_versitorganizer_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_websockets.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_widgets.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xlsx.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xlsx_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xml.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\qt-build\qt\mkspecs\features\qt_functions.prf ..\..\..\qt-build\qt\mkspecs\features\qt_config.prf ..\..\..\qt-build\qt\mkspecs\win32-g++\qmake.conf ..\..\..\qt-build\qt\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\qt-build\qt\mkspecs\features\exclusive_builds.prf ..\..\..\qt-build\qt\mkspecs\features\toolchain.prf ..\..\..\qt-build\qt\mkspecs\features\default_pre.prf ..\..\..\qt-build\qt\mkspecs\features\win32\default_pre.prf ..\..\..\qt-build\qt\mkspecs\features\resolve_config.prf ..\..\..\qt-build\qt\mkspecs\features\exclusive_builds_post.prf ..\..\..\qt-build\qt\mkspecs\features\default_post.prf ..\..\..\qt-build\qt\mkspecs\features\build_pass.prf ..\..\..\qt-build\qt\mkspecs\features\qml_debug.prf ..\..\..\qt-build\qt\mkspecs\features\precompile_header.prf ..\..\..\qt-build\qt\mkspecs\features\warn_on.prf ..\..\..\qt-build\qt\mkspecs\features\qt.prf ..\..\..\qt-build\qt\mkspecs\features\resources.prf ..\..\..\qt-build\qt\mkspecs\features\moc.prf ..\..\..\qt-build\qt\mkspecs\features\win32\opengl.prf ..\..\..\qt-build\qt\mkspecs\features\uic.prf ..\..\..\qt-build\qt\mkspecs\features\av.prf ..\..\..\qt-build\qt\mkspecs\features\avwidgets.prf ..\..\..\qt-build\qt\mkspecs\features\qmake_use.prf ..\..\..\qt-build\qt\mkspecs\features\file_copies.prf ..\..\..\qt-build\qt\mkspecs\features\win32\windows.prf ..\..\..\qt-build\qt\mkspecs\features\testcase_targets.prf ..\..\..\qt-build\qt\mkspecs\features\exceptions.prf ..\..\..\qt-build\qt\mkspecs\features\yacc.prf ..\..\..\qt-build\qt\mkspecs\features\lex.prf PwhManagementProject.pro ..\..\..\qt-build\qt\lib\qtmaind.prl ..\..\..\qt-build\qt\lib\Qt5OpenGLd.prl ..\..\..\qt-build\qt\lib\Qt5Widgetsd.prl ..\..\..\qt-build\qt\lib\Qt5Guid.prl ..\..\..\qt-build\qt\lib\Qt5Cored.prl    ..\..\..\qt-build\qt\mkspecs\features\data\dummy.cpp PwhManagementMain.h Pwh\PwhManagement.h Model\json_model.h Model\product_info_model.h Model\product_structure_model.h Qt-Utils\des.h Qt-Utils\encryption.h Qt-Utils\json.hpp Qt-Utils\krys_application.hpp Qt-Utils\qt.hpp Qt-Utils\stl_extension.hpp Qt-Utils\tinyxml2.h interface_control\Ribbon.h interface_control\PwhManagementRibbon.h interface_control\global_widget.h view\table_view.h data_veryfication.h interface_control\detail_dlg.h interface_control\data_widget.h interface_control\form_widget.h video\video_form_split.h interface_control\analysis_detail_widget.h Model\pts_model.h Model\pts_delegate.h code_edit.h video\video_form_model.h video\video_delegate.h Model\stdtime_model.h delegate\stdtime_delegate.h arithmetic_resource.hpp interface_control\modify_product_dlg.h interface_control\new_item_dlg.h video\video_widget.h video\video_player.hpp video\progress_label.h util.h Model\TreeModel.h Model\TreeItem.h interface_control\ModifyProductDlg.h interface_control\AddtoStdDatabaseDlg.h main.cc PwhManagementMain.cc Pwh\PwhManagement.cc Model\json_model.cpp Model\product_info_model.cpp Model\product_structure_model.cpp Qt-Utils\des.cpp Qt-Utils\encryption.cpp Qt-Utils\tinyxml2.cpp interface_control\Ribbon.cc interface_control\PwhManagementRibbon.cc interface_control\global_widget.cpp view\table_view.cpp data_veryfication.cpp interface_control\detail_dlg.cpp interface_control\data_widget.cpp interface_control\form_widget.cpp video\video_form_split.cpp interface_control\analysis_detail_widget.cpp Model\pts_model.cpp Model\pts_delegate.cpp code_edit.cpp video\video_form_model.cpp video\video_delegate.cpp Model\stdtime_model.cpp delegate\stdtime_delegate.cpp interface_control\modify_product_dlg.cpp interface_control\new_item_dlg.cpp video\video_widget.cpp video\progress_label.cpp util.cpp Model\TreeModel.cpp Model\TreeItem.cpp interface_control\ModifyProductDlg.cpp interface_control\AddtoStdDatabaseDlg.cpp pwhmanagementmain.ui Pwh\pwhmanagement.ui interface_control\global_widget.ui interface_control\detail_dlg.ui interface_control\data_widget.ui interface_control\form_widget.ui interface_control\analysis_detail_widget.ui interface_control\modify_product_dlg.ui new_file.ui video\video_widget.ui interface_control\modifyproductdlg.ui interface_control\addtostddatabasedlg.ui    
+	$(ZIP) PwhManagementProject.zip $(SOURCES) $(DIST) PwhManagementProject.pro ..\..\..\qt-build\qt\mkspecs\features\spec_pre.prf ..\..\..\qt-build\qt\mkspecs\qdevice.pri ..\..\..\qt-build\qt\mkspecs\features\device_config.prf ..\..\..\qt-build\qt\mkspecs\common\g++-base.conf ..\..\..\qt-build\qt\mkspecs\common\windows-gles.conf ..\..\..\qt-build\qt\mkspecs\common\sanitize.conf ..\..\..\qt-build\qt\mkspecs\common\gcc-base.conf ..\..\..\qt-build\qt\mkspecs\qconfig.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_accessibility_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_av.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_av_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_avwidgets.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_avwidgets_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axbase.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axbase_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axcontainer.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axcontainer_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axserver.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_axserver_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_bluetooth.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_bluetooth_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_bootstrap_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_charts.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_charts_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_contacts.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_contacts_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_core.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_core_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_dbus.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_docgallery.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_docgallery_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_fontdatabase_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_gamepad.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_gamepad_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_gui.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_network.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_network_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_nfc.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_nfc_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_opengl.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_openglextensions.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_openglextensions_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_organizer.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_organizer_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_platformcompositor_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_publishsubscribe.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_publishsubscribe_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_purchasing.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_purchasing_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qml.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qmldevtools_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quick.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_remoteobjects.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_remoteobjects_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_repparser.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_repparser_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_scxml.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_scxml_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serialbus.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serialbus_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serialport.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serialport_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serviceframework.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_serviceframework_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_sql.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_svg.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_testlib.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_theme_support_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_versit.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_versit_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_versitorganizer.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_versitorganizer_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_websockets.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_websockets_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_widgets.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xlsx.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xlsx_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xml.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xmlpatterns.pri ..\..\..\qt-build\qt\mkspecs\modules\qt_lib_xmlpatterns_private.pri ..\..\..\qt-build\qt\mkspecs\features\qt_functions.prf ..\..\..\qt-build\qt\mkspecs\features\qt_config.prf ..\..\..\qt-build\qt\mkspecs\win32-g++\qmake.conf ..\..\..\qt-build\qt\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\qt-build\qt\mkspecs\features\exclusive_builds.prf ..\..\..\qt-build\qt\mkspecs\features\toolchain.prf ..\..\..\qt-build\qt\mkspecs\features\default_pre.prf ..\..\..\qt-build\qt\mkspecs\features\win32\default_pre.prf ..\..\..\qt-build\qt\mkspecs\features\resolve_config.prf ..\..\..\qt-build\qt\mkspecs\features\exclusive_builds_post.prf ..\..\..\qt-build\qt\mkspecs\features\default_post.prf ..\..\..\qt-build\qt\mkspecs\features\build_pass.prf ..\..\..\qt-build\qt\mkspecs\features\qml_debug.prf ..\..\..\qt-build\qt\mkspecs\features\precompile_header.prf ..\..\..\qt-build\qt\mkspecs\features\warn_on.prf ..\..\..\qt-build\qt\mkspecs\features\qt.prf ..\..\..\qt-build\qt\mkspecs\features\resources.prf ..\..\..\qt-build\qt\mkspecs\features\moc.prf ..\..\..\qt-build\qt\mkspecs\features\win32\opengl.prf ..\..\..\qt-build\qt\mkspecs\features\uic.prf ..\..\..\qt-build\qt\mkspecs\features\av.prf ..\..\..\qt-build\qt\mkspecs\features\avwidgets.prf ..\..\..\qt-build\qt\mkspecs\features\qmake_use.prf ..\..\..\qt-build\qt\mkspecs\features\file_copies.prf ..\..\..\qt-build\qt\mkspecs\features\win32\windows.prf ..\..\..\qt-build\qt\mkspecs\features\testcase_targets.prf ..\..\..\qt-build\qt\mkspecs\features\exceptions.prf ..\..\..\qt-build\qt\mkspecs\features\yacc.prf ..\..\..\qt-build\qt\mkspecs\features\lex.prf PwhManagementProject.pro ..\..\..\qt-build\qt\lib\qtmaind.prl ..\..\..\qt-build\qt\lib\Qt5OpenGLd.prl ..\..\..\qt-build\qt\lib\Qt5Widgetsd.prl ..\..\..\qt-build\qt\lib\Qt5Guid.prl ..\..\..\qt-build\qt\lib\Qt5Cored.prl    ..\..\..\qt-build\qt\mkspecs\features\data\dummy.cpp PwhManagementMain.h Pwh\PwhManagement.h Model\json_model.h Model\product_info_model.h Model\product_structure_model.h Qt-Utils\des.h Qt-Utils\encryption.h Qt-Utils\json.hpp Qt-Utils\krys_application.hpp Qt-Utils\qt.hpp Qt-Utils\stl_extension.hpp Qt-Utils\tinyxml2.h interface_control\Ribbon.h interface_control\PwhManagementRibbon.h interface_control\global_widget.h view\table_view.h data_veryfication.h interface_control\detail_dlg.h interface_control\data_widget.h interface_control\form_widget.h video\video_form_split.h interface_control\analysis_detail_widget.h Model\pts_model.h Model\pts_delegate.h code_edit.h video\video_form_model.h video\video_delegate.h Model\stdtime_model.h delegate\stdtime_delegate.h arithmetic_resource.hpp interface_control\modify_product_dlg.h interface_control\new_item_dlg.h video\video_widget.h video\video_player.hpp video\progress_label.h util.h Model\TreeModel.h Model\TreeItem.h interface_control\ModifyProductDlg.h interface_control\AddtoStdDatabaseDlg.h interface_control\widget.h interface_control\JsonTree.h main.cc PwhManagementMain.cc Pwh\PwhManagement.cc Model\json_model.cpp Model\product_info_model.cpp Model\product_structure_model.cpp Qt-Utils\des.cpp Qt-Utils\encryption.cpp Qt-Utils\tinyxml2.cpp interface_control\Ribbon.cc interface_control\PwhManagementRibbon.cc interface_control\global_widget.cpp view\table_view.cpp data_veryfication.cpp interface_control\detail_dlg.cpp interface_control\data_widget.cpp interface_control\form_widget.cpp video\video_form_split.cpp interface_control\analysis_detail_widget.cpp Model\pts_model.cpp Model\pts_delegate.cpp code_edit.cpp video\video_form_model.cpp video\video_delegate.cpp Model\stdtime_model.cpp delegate\stdtime_delegate.cpp interface_control\modify_product_dlg.cpp interface_control\new_item_dlg.cpp video\video_widget.cpp video\progress_label.cpp util.cpp Model\TreeModel.cpp Model\TreeItem.cpp interface_control\ModifyProductDlg.cpp interface_control\AddtoStdDatabaseDlg.cpp interface_control\widget.cpp interface_control\JsonTree.cc pwhmanagementmain.ui Pwh\pwhmanagement.ui interface_control\global_widget.ui interface_control\detail_dlg.ui interface_control\data_widget.ui interface_control\form_widget.ui interface_control\analysis_detail_widget.ui interface_control\modify_product_dlg.ui new_file.ui video\video_widget.ui interface_control\modifyproductdlg.ui interface_control\addtostddatabasedlg.ui interface_control\widget.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) debug\main.o debug\PwhManagementMain.o debug\PwhManagement.o debug\json_model.o debug\product_info_model.o debug\product_structure_model.o debug\des.o debug\encryption.o debug\tinyxml2.o debug\Ribbon.o debug\PwhManagementRibbon.o debug\global_widget.o debug\table_view.o debug\data_veryfication.o debug\detail_dlg.o debug\data_widget.o debug\form_widget.o debug\video_form_split.o debug\analysis_detail_widget.o debug\pts_model.o debug\pts_delegate.o debug\code_edit.o debug\video_form_model.o debug\video_delegate.o debug\stdtime_model.o debug\stdtime_delegate.o debug\modify_product_dlg.o debug\new_item_dlg.o debug\video_widget.o debug\progress_label.o debug\util.o debug\TreeModel.o debug\TreeItem.o debug\ModifyProductDlg.o debug\AddtoStdDatabaseDlg.o debug\moc_PwhManagementMain.o debug\moc_PwhManagement.o debug\moc_json_model.o debug\moc_product_info_model.o debug\moc_krys_application.o debug\moc_Ribbon.o debug\moc_PwhManagementRibbon.o debug\moc_global_widget.o debug\moc_table_view.o debug\moc_detail_dlg.o debug\moc_data_widget.o debug\moc_form_widget.o debug\moc_analysis_detail_widget.o debug\moc_pts_model.o debug\moc_video_form_model.o debug\moc_stdtime_model.o debug\moc_modify_product_dlg.o debug\moc_new_item_dlg.o debug\moc_video_widget.o debug\moc_video_player.o debug\moc_progress_label.o debug\moc_TreeModel.o debug\moc_ModifyProductDlg.o debug\moc_AddtoStdDatabaseDlg.o
+	-$(DEL_FILE) debug\main.o debug\PwhManagementMain.o debug\PwhManagement.o debug\json_model.o debug\product_info_model.o debug\product_structure_model.o debug\des.o debug\encryption.o debug\tinyxml2.o debug\Ribbon.o debug\PwhManagementRibbon.o debug\global_widget.o debug\table_view.o debug\data_veryfication.o debug\detail_dlg.o debug\data_widget.o debug\form_widget.o debug\video_form_split.o debug\analysis_detail_widget.o debug\pts_model.o debug\pts_delegate.o debug\code_edit.o debug\video_form_model.o debug\video_delegate.o debug\stdtime_model.o debug\stdtime_delegate.o debug\modify_product_dlg.o debug\new_item_dlg.o debug\video_widget.o debug\progress_label.o debug\util.o debug\TreeModel.o debug\TreeItem.o debug\ModifyProductDlg.o debug\AddtoStdDatabaseDlg.o debug\widget.o debug\JsonTree.o debug\moc_PwhManagementMain.o debug\moc_PwhManagement.o debug\moc_json_model.o debug\moc_product_info_model.o debug\moc_krys_application.o debug\moc_Ribbon.o debug\moc_PwhManagementRibbon.o debug\moc_global_widget.o debug\moc_table_view.o debug\moc_detail_dlg.o debug\moc_data_widget.o debug\moc_form_widget.o debug\moc_analysis_detail_widget.o debug\moc_pts_model.o debug\moc_video_form_model.o debug\moc_stdtime_model.o debug\moc_modify_product_dlg.o debug\moc_new_item_dlg.o debug\moc_video_widget.o debug\moc_video_player.o debug\moc_progress_label.o debug\moc_TreeModel.o debug\moc_ModifyProductDlg.o debug\moc_AddtoStdDatabaseDlg.o debug\moc_widget.o debug\moc_JsonTree.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -284,9 +296,9 @@ compiler_moc_predefs_clean:
 debug/moc_predefs.h: ../../../qt-build/qt/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -pipe -std=c++1z -g -Wextra -Wall -W -dM -E -o debug\moc_predefs.h ..\..\..\qt-build\qt\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: debug/moc_PwhManagementMain.cpp debug/moc_PwhManagement.cpp debug/moc_json_model.cpp debug/moc_product_info_model.cpp debug/moc_krys_application.cpp debug/moc_Ribbon.cpp debug/moc_PwhManagementRibbon.cpp debug/moc_global_widget.cpp debug/moc_table_view.cpp debug/moc_detail_dlg.cpp debug/moc_data_widget.cpp debug/moc_form_widget.cpp debug/moc_analysis_detail_widget.cpp debug/moc_pts_model.cpp debug/moc_video_form_model.cpp debug/moc_stdtime_model.cpp debug/moc_modify_product_dlg.cpp debug/moc_new_item_dlg.cpp debug/moc_video_widget.cpp debug/moc_video_player.cpp debug/moc_progress_label.cpp debug/moc_TreeModel.cpp debug/moc_ModifyProductDlg.cpp debug/moc_AddtoStdDatabaseDlg.cpp
+compiler_moc_header_make_all: debug/moc_PwhManagementMain.cpp debug/moc_PwhManagement.cpp debug/moc_json_model.cpp debug/moc_product_info_model.cpp debug/moc_krys_application.cpp debug/moc_Ribbon.cpp debug/moc_PwhManagementRibbon.cpp debug/moc_global_widget.cpp debug/moc_table_view.cpp debug/moc_detail_dlg.cpp debug/moc_data_widget.cpp debug/moc_form_widget.cpp debug/moc_analysis_detail_widget.cpp debug/moc_pts_model.cpp debug/moc_video_form_model.cpp debug/moc_stdtime_model.cpp debug/moc_modify_product_dlg.cpp debug/moc_new_item_dlg.cpp debug/moc_video_widget.cpp debug/moc_video_player.cpp debug/moc_progress_label.cpp debug/moc_TreeModel.cpp debug/moc_ModifyProductDlg.cpp debug/moc_AddtoStdDatabaseDlg.cpp debug/moc_widget.cpp debug/moc_JsonTree.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) debug\moc_PwhManagementMain.cpp debug\moc_PwhManagement.cpp debug\moc_json_model.cpp debug\moc_product_info_model.cpp debug\moc_krys_application.cpp debug\moc_Ribbon.cpp debug\moc_PwhManagementRibbon.cpp debug\moc_global_widget.cpp debug\moc_table_view.cpp debug\moc_detail_dlg.cpp debug\moc_data_widget.cpp debug\moc_form_widget.cpp debug\moc_analysis_detail_widget.cpp debug\moc_pts_model.cpp debug\moc_video_form_model.cpp debug\moc_stdtime_model.cpp debug\moc_modify_product_dlg.cpp debug\moc_new_item_dlg.cpp debug\moc_video_widget.cpp debug\moc_video_player.cpp debug\moc_progress_label.cpp debug\moc_TreeModel.cpp debug\moc_ModifyProductDlg.cpp debug\moc_AddtoStdDatabaseDlg.cpp
+	-$(DEL_FILE) debug\moc_PwhManagementMain.cpp debug\moc_PwhManagement.cpp debug\moc_json_model.cpp debug\moc_product_info_model.cpp debug\moc_krys_application.cpp debug\moc_Ribbon.cpp debug\moc_PwhManagementRibbon.cpp debug\moc_global_widget.cpp debug\moc_table_view.cpp debug\moc_detail_dlg.cpp debug\moc_data_widget.cpp debug\moc_form_widget.cpp debug\moc_analysis_detail_widget.cpp debug\moc_pts_model.cpp debug\moc_video_form_model.cpp debug\moc_stdtime_model.cpp debug\moc_modify_product_dlg.cpp debug\moc_new_item_dlg.cpp debug\moc_video_widget.cpp debug\moc_video_player.cpp debug\moc_progress_label.cpp debug\moc_TreeModel.cpp debug\moc_ModifyProductDlg.cpp debug\moc_AddtoStdDatabaseDlg.cpp debug\moc_widget.cpp debug\moc_JsonTree.cpp
 debug/moc_PwhManagementMain.cpp: ../../../qt-build/qt/include/QtWidgets/QWidget \
 		../../../qt-build/qt/include/QtWidgets/qwidget.h \
 		../../../qt-build/qt/include/QtWidgets/qtwidgetsglobal.h \
@@ -3165,11 +3177,241 @@ debug/moc_AddtoStdDatabaseDlg.cpp: ../../../qt-build/qt/include/QtWidgets/QDialo
 		../../../qt-build/qt/bin/moc.exe
 	D:\qt-build\qt\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -ID:/qt-build/qt/mkspecs/win32-g++ -ID:/files/PwhManagementProject/PwhManagementProject -ID:/qt-build/qt/include -ID:/qt-build/qt/include/QtAVWidgets -ID:/qt-build/qt/include/QtAV -ID:/qt-build/qt/include/QtOpenGL -ID:/qt-build/qt/include/QtWidgets -ID:/qt-build/qt/include/QtGui -ID:/qt-build/qt/include/QtCore -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include/c++ -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include/c++/i686-w64-mingw32 -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include/c++/backward -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include-fixed -ID:/qt-build/mingw/mingw32/i686-w64-mingw32/include interface_control\AddtoStdDatabaseDlg.h -o debug\moc_AddtoStdDatabaseDlg.cpp
 
+debug/moc_widget.cpp: ../../../qt-build/qt/include/QtWidgets/QWidget \
+		../../../qt-build/qt/include/QtWidgets/qwidget.h \
+		../../../qt-build/qt/include/QtWidgets/qtwidgetsglobal.h \
+		../../../qt-build/qt/include/QtGui/qtguiglobal.h \
+		../../../qt-build/qt/include/QtCore/qglobal.h \
+		../../../qt-build/qt/include/QtCore/qconfig-bootstrapped.h \
+		../../../qt-build/qt/include/QtCore/qconfig.h \
+		../../../qt-build/qt/include/QtCore/qtcore-config.h \
+		../../../qt-build/qt/include/QtCore/qsystemdetection.h \
+		../../../qt-build/qt/include/QtCore/qprocessordetection.h \
+		../../../qt-build/qt/include/QtCore/qcompilerdetection.h \
+		../../../qt-build/qt/include/QtCore/qtypeinfo.h \
+		../../../qt-build/qt/include/QtCore/qsysinfo.h \
+		../../../qt-build/qt/include/QtCore/qlogging.h \
+		../../../qt-build/qt/include/QtCore/qflags.h \
+		../../../qt-build/qt/include/QtCore/qatomic.h \
+		../../../qt-build/qt/include/QtCore/qbasicatomic.h \
+		../../../qt-build/qt/include/QtCore/qatomic_bootstrap.h \
+		../../../qt-build/qt/include/QtCore/qgenericatomic.h \
+		../../../qt-build/qt/include/QtCore/qatomic_cxx11.h \
+		../../../qt-build/qt/include/QtCore/qatomic_msvc.h \
+		../../../qt-build/qt/include/QtCore/qglobalstatic.h \
+		../../../qt-build/qt/include/QtCore/qmutex.h \
+		../../../qt-build/qt/include/QtCore/qnumeric.h \
+		../../../qt-build/qt/include/QtCore/qversiontagging.h \
+		../../../qt-build/qt/include/QtGui/qtgui-config.h \
+		../../../qt-build/qt/include/QtWidgets/qtwidgets-config.h \
+		../../../qt-build/qt/include/QtGui/qwindowdefs.h \
+		../../../qt-build/qt/include/QtCore/qobjectdefs.h \
+		../../../qt-build/qt/include/QtCore/qnamespace.h \
+		../../../qt-build/qt/include/QtCore/qobjectdefs_impl.h \
+		../../../qt-build/qt/include/QtGui/qwindowdefs_win.h \
+		../../../qt-build/qt/include/QtCore/qobject.h \
+		../../../qt-build/qt/include/QtCore/qstring.h \
+		../../../qt-build/qt/include/QtCore/qchar.h \
+		../../../qt-build/qt/include/QtCore/qbytearray.h \
+		../../../qt-build/qt/include/QtCore/qrefcount.h \
+		../../../qt-build/qt/include/QtCore/qarraydata.h \
+		../../../qt-build/qt/include/QtCore/qstringbuilder.h \
+		../../../qt-build/qt/include/QtCore/qlist.h \
+		../../../qt-build/qt/include/QtCore/qalgorithms.h \
+		../../../qt-build/qt/include/QtCore/qiterator.h \
+		../../../qt-build/qt/include/QtCore/qhashfunctions.h \
+		../../../qt-build/qt/include/QtCore/qpair.h \
+		../../../qt-build/qt/include/QtCore/qbytearraylist.h \
+		../../../qt-build/qt/include/QtCore/qstringlist.h \
+		../../../qt-build/qt/include/QtCore/qregexp.h \
+		../../../qt-build/qt/include/QtCore/qstringmatcher.h \
+		../../../qt-build/qt/include/QtCore/qcoreevent.h \
+		../../../qt-build/qt/include/QtCore/qscopedpointer.h \
+		../../../qt-build/qt/include/QtCore/qmetatype.h \
+		../../../qt-build/qt/include/QtCore/qvarlengtharray.h \
+		../../../qt-build/qt/include/QtCore/qcontainerfwd.h \
+		../../../qt-build/qt/include/QtCore/qobject_impl.h \
+		../../../qt-build/qt/include/QtCore/qmargins.h \
+		../../../qt-build/qt/include/QtGui/qpaintdevice.h \
+		../../../qt-build/qt/include/QtCore/qrect.h \
+		../../../qt-build/qt/include/QtCore/qsize.h \
+		../../../qt-build/qt/include/QtCore/qpoint.h \
+		../../../qt-build/qt/include/QtGui/qpalette.h \
+		../../../qt-build/qt/include/QtGui/qcolor.h \
+		../../../qt-build/qt/include/QtGui/qrgb.h \
+		../../../qt-build/qt/include/QtGui/qrgba64.h \
+		../../../qt-build/qt/include/QtGui/qbrush.h \
+		../../../qt-build/qt/include/QtCore/qvector.h \
+		../../../qt-build/qt/include/QtGui/qmatrix.h \
+		../../../qt-build/qt/include/QtGui/qpolygon.h \
+		../../../qt-build/qt/include/QtGui/qregion.h \
+		../../../qt-build/qt/include/QtCore/qdatastream.h \
+		../../../qt-build/qt/include/QtCore/qiodevice.h \
+		../../../qt-build/qt/include/QtCore/qline.h \
+		../../../qt-build/qt/include/QtGui/qtransform.h \
+		../../../qt-build/qt/include/QtGui/qpainterpath.h \
+		../../../qt-build/qt/include/QtGui/qimage.h \
+		../../../qt-build/qt/include/QtGui/qpixelformat.h \
+		../../../qt-build/qt/include/QtGui/qpixmap.h \
+		../../../qt-build/qt/include/QtCore/qsharedpointer.h \
+		../../../qt-build/qt/include/QtCore/qshareddata.h \
+		../../../qt-build/qt/include/QtCore/qhash.h \
+		../../../qt-build/qt/include/QtCore/qsharedpointer_impl.h \
+		../../../qt-build/qt/include/QtGui/qfont.h \
+		../../../qt-build/qt/include/QtGui/qfontmetrics.h \
+		../../../qt-build/qt/include/QtGui/qfontinfo.h \
+		../../../qt-build/qt/include/QtWidgets/qsizepolicy.h \
+		../../../qt-build/qt/include/QtGui/qcursor.h \
+		../../../qt-build/qt/include/QtGui/qkeysequence.h \
+		../../../qt-build/qt/include/QtGui/qevent.h \
+		../../../qt-build/qt/include/QtCore/qvariant.h \
+		../../../qt-build/qt/include/QtCore/qmap.h \
+		../../../qt-build/qt/include/QtCore/qdebug.h \
+		../../../qt-build/qt/include/QtCore/qtextstream.h \
+		../../../qt-build/qt/include/QtCore/qlocale.h \
+		../../../qt-build/qt/include/QtCore/qset.h \
+		../../../qt-build/qt/include/QtCore/qcontiguouscache.h \
+		../../../qt-build/qt/include/QtCore/qurl.h \
+		../../../qt-build/qt/include/QtCore/qurlquery.h \
+		../../../qt-build/qt/include/QtCore/qfile.h \
+		../../../qt-build/qt/include/QtCore/qfiledevice.h \
+		../../../qt-build/qt/include/QtGui/qvector2d.h \
+		../../../qt-build/qt/include/QtGui/qtouchdevice.h \
+		interface_control/widget.h \
+		debug/moc_predefs.h \
+		../../../qt-build/qt/bin/moc.exe
+	D:\qt-build\qt\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -ID:/qt-build/qt/mkspecs/win32-g++ -ID:/files/PwhManagementProject/PwhManagementProject -ID:/qt-build/qt/include -ID:/qt-build/qt/include/QtAVWidgets -ID:/qt-build/qt/include/QtAV -ID:/qt-build/qt/include/QtOpenGL -ID:/qt-build/qt/include/QtWidgets -ID:/qt-build/qt/include/QtGui -ID:/qt-build/qt/include/QtCore -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include/c++ -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include/c++/i686-w64-mingw32 -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include/c++/backward -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include-fixed -ID:/qt-build/mingw/mingw32/i686-w64-mingw32/include interface_control\widget.h -o debug\moc_widget.cpp
+
+debug/moc_JsonTree.cpp: ../../../qt-build/qt/include/QtWidgets/QTreeWidget \
+		../../../qt-build/qt/include/QtWidgets/qtreewidget.h \
+		../../../qt-build/qt/include/QtWidgets/qtwidgetsglobal.h \
+		../../../qt-build/qt/include/QtGui/qtguiglobal.h \
+		../../../qt-build/qt/include/QtCore/qglobal.h \
+		../../../qt-build/qt/include/QtCore/qconfig-bootstrapped.h \
+		../../../qt-build/qt/include/QtCore/qconfig.h \
+		../../../qt-build/qt/include/QtCore/qtcore-config.h \
+		../../../qt-build/qt/include/QtCore/qsystemdetection.h \
+		../../../qt-build/qt/include/QtCore/qprocessordetection.h \
+		../../../qt-build/qt/include/QtCore/qcompilerdetection.h \
+		../../../qt-build/qt/include/QtCore/qtypeinfo.h \
+		../../../qt-build/qt/include/QtCore/qsysinfo.h \
+		../../../qt-build/qt/include/QtCore/qlogging.h \
+		../../../qt-build/qt/include/QtCore/qflags.h \
+		../../../qt-build/qt/include/QtCore/qatomic.h \
+		../../../qt-build/qt/include/QtCore/qbasicatomic.h \
+		../../../qt-build/qt/include/QtCore/qatomic_bootstrap.h \
+		../../../qt-build/qt/include/QtCore/qgenericatomic.h \
+		../../../qt-build/qt/include/QtCore/qatomic_cxx11.h \
+		../../../qt-build/qt/include/QtCore/qatomic_msvc.h \
+		../../../qt-build/qt/include/QtCore/qglobalstatic.h \
+		../../../qt-build/qt/include/QtCore/qmutex.h \
+		../../../qt-build/qt/include/QtCore/qnumeric.h \
+		../../../qt-build/qt/include/QtCore/qversiontagging.h \
+		../../../qt-build/qt/include/QtGui/qtgui-config.h \
+		../../../qt-build/qt/include/QtWidgets/qtwidgets-config.h \
+		../../../qt-build/qt/include/QtWidgets/qtreeview.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractitemview.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractscrollarea.h \
+		../../../qt-build/qt/include/QtWidgets/qframe.h \
+		../../../qt-build/qt/include/QtWidgets/qwidget.h \
+		../../../qt-build/qt/include/QtGui/qwindowdefs.h \
+		../../../qt-build/qt/include/QtCore/qobjectdefs.h \
+		../../../qt-build/qt/include/QtCore/qnamespace.h \
+		../../../qt-build/qt/include/QtCore/qobjectdefs_impl.h \
+		../../../qt-build/qt/include/QtGui/qwindowdefs_win.h \
+		../../../qt-build/qt/include/QtCore/qobject.h \
+		../../../qt-build/qt/include/QtCore/qstring.h \
+		../../../qt-build/qt/include/QtCore/qchar.h \
+		../../../qt-build/qt/include/QtCore/qbytearray.h \
+		../../../qt-build/qt/include/QtCore/qrefcount.h \
+		../../../qt-build/qt/include/QtCore/qarraydata.h \
+		../../../qt-build/qt/include/QtCore/qstringbuilder.h \
+		../../../qt-build/qt/include/QtCore/qlist.h \
+		../../../qt-build/qt/include/QtCore/qalgorithms.h \
+		../../../qt-build/qt/include/QtCore/qiterator.h \
+		../../../qt-build/qt/include/QtCore/qhashfunctions.h \
+		../../../qt-build/qt/include/QtCore/qpair.h \
+		../../../qt-build/qt/include/QtCore/qbytearraylist.h \
+		../../../qt-build/qt/include/QtCore/qstringlist.h \
+		../../../qt-build/qt/include/QtCore/qregexp.h \
+		../../../qt-build/qt/include/QtCore/qstringmatcher.h \
+		../../../qt-build/qt/include/QtCore/qcoreevent.h \
+		../../../qt-build/qt/include/QtCore/qscopedpointer.h \
+		../../../qt-build/qt/include/QtCore/qmetatype.h \
+		../../../qt-build/qt/include/QtCore/qvarlengtharray.h \
+		../../../qt-build/qt/include/QtCore/qcontainerfwd.h \
+		../../../qt-build/qt/include/QtCore/qobject_impl.h \
+		../../../qt-build/qt/include/QtCore/qmargins.h \
+		../../../qt-build/qt/include/QtGui/qpaintdevice.h \
+		../../../qt-build/qt/include/QtCore/qrect.h \
+		../../../qt-build/qt/include/QtCore/qsize.h \
+		../../../qt-build/qt/include/QtCore/qpoint.h \
+		../../../qt-build/qt/include/QtGui/qpalette.h \
+		../../../qt-build/qt/include/QtGui/qcolor.h \
+		../../../qt-build/qt/include/QtGui/qrgb.h \
+		../../../qt-build/qt/include/QtGui/qrgba64.h \
+		../../../qt-build/qt/include/QtGui/qbrush.h \
+		../../../qt-build/qt/include/QtCore/qvector.h \
+		../../../qt-build/qt/include/QtGui/qmatrix.h \
+		../../../qt-build/qt/include/QtGui/qpolygon.h \
+		../../../qt-build/qt/include/QtGui/qregion.h \
+		../../../qt-build/qt/include/QtCore/qdatastream.h \
+		../../../qt-build/qt/include/QtCore/qiodevice.h \
+		../../../qt-build/qt/include/QtCore/qline.h \
+		../../../qt-build/qt/include/QtGui/qtransform.h \
+		../../../qt-build/qt/include/QtGui/qpainterpath.h \
+		../../../qt-build/qt/include/QtGui/qimage.h \
+		../../../qt-build/qt/include/QtGui/qpixelformat.h \
+		../../../qt-build/qt/include/QtGui/qpixmap.h \
+		../../../qt-build/qt/include/QtCore/qsharedpointer.h \
+		../../../qt-build/qt/include/QtCore/qshareddata.h \
+		../../../qt-build/qt/include/QtCore/qhash.h \
+		../../../qt-build/qt/include/QtCore/qsharedpointer_impl.h \
+		../../../qt-build/qt/include/QtGui/qfont.h \
+		../../../qt-build/qt/include/QtGui/qfontmetrics.h \
+		../../../qt-build/qt/include/QtGui/qfontinfo.h \
+		../../../qt-build/qt/include/QtWidgets/qsizepolicy.h \
+		../../../qt-build/qt/include/QtGui/qcursor.h \
+		../../../qt-build/qt/include/QtGui/qkeysequence.h \
+		../../../qt-build/qt/include/QtGui/qevent.h \
+		../../../qt-build/qt/include/QtCore/qvariant.h \
+		../../../qt-build/qt/include/QtCore/qmap.h \
+		../../../qt-build/qt/include/QtCore/qdebug.h \
+		../../../qt-build/qt/include/QtCore/qtextstream.h \
+		../../../qt-build/qt/include/QtCore/qlocale.h \
+		../../../qt-build/qt/include/QtCore/qset.h \
+		../../../qt-build/qt/include/QtCore/qcontiguouscache.h \
+		../../../qt-build/qt/include/QtCore/qurl.h \
+		../../../qt-build/qt/include/QtCore/qurlquery.h \
+		../../../qt-build/qt/include/QtCore/qfile.h \
+		../../../qt-build/qt/include/QtCore/qfiledevice.h \
+		../../../qt-build/qt/include/QtGui/qvector2d.h \
+		../../../qt-build/qt/include/QtGui/qtouchdevice.h \
+		../../../qt-build/qt/include/QtCore/qabstractitemmodel.h \
+		../../../qt-build/qt/include/QtCore/qitemselectionmodel.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractitemdelegate.h \
+		../../../qt-build/qt/include/QtWidgets/qstyleoption.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractspinbox.h \
+		../../../qt-build/qt/include/QtGui/qvalidator.h \
+		../../../qt-build/qt/include/QtCore/qregularexpression.h \
+		../../../qt-build/qt/include/QtGui/qicon.h \
+		../../../qt-build/qt/include/QtWidgets/qslider.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractslider.h \
+		../../../qt-build/qt/include/QtWidgets/qstyle.h \
+		../../../qt-build/qt/include/QtWidgets/qtabbar.h \
+		../../../qt-build/qt/include/QtWidgets/qtabwidget.h \
+		../../../qt-build/qt/include/QtWidgets/qrubberband.h \
+		../../../qt-build/qt/include/QtWidgets/qtreewidgetitemiterator.h \
+		interface_control/JsonTree.h \
+		debug/moc_predefs.h \
+		../../../qt-build/qt/bin/moc.exe
+	D:\qt-build\qt\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -ID:/qt-build/qt/mkspecs/win32-g++ -ID:/files/PwhManagementProject/PwhManagementProject -ID:/qt-build/qt/include -ID:/qt-build/qt/include/QtAVWidgets -ID:/qt-build/qt/include/QtAV -ID:/qt-build/qt/include/QtOpenGL -ID:/qt-build/qt/include/QtWidgets -ID:/qt-build/qt/include/QtGui -ID:/qt-build/qt/include/QtCore -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include/c++ -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include/c++/i686-w64-mingw32 -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include/c++/backward -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include -ID:/qt-build/mingw/mingw32/lib/gcc/i686-w64-mingw32/7.1.0/include-fixed -ID:/qt-build/mingw/mingw32/i686-w64-mingw32/include interface_control\JsonTree.h -o debug\moc_JsonTree.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_pwhmanagementmain.h ui_pwhmanagement.h ui_global_widget.h ui_detail_dlg.h ui_data_widget.h ui_form_widget.h ui_analysis_detail_widget.h ui_modify_product_dlg.h ui_new_file.h ui_video_widget.h ui_modifyproductdlg.h ui_addtostddatabasedlg.h
+compiler_uic_make_all: ui_pwhmanagementmain.h ui_pwhmanagement.h ui_global_widget.h ui_detail_dlg.h ui_data_widget.h ui_form_widget.h ui_analysis_detail_widget.h ui_modify_product_dlg.h ui_new_file.h ui_video_widget.h ui_modifyproductdlg.h ui_addtostddatabasedlg.h ui_widget.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_pwhmanagementmain.h ui_pwhmanagement.h ui_global_widget.h ui_detail_dlg.h ui_data_widget.h ui_form_widget.h ui_analysis_detail_widget.h ui_modify_product_dlg.h ui_new_file.h ui_video_widget.h ui_modifyproductdlg.h ui_addtostddatabasedlg.h
+	-$(DEL_FILE) ui_pwhmanagementmain.h ui_pwhmanagement.h ui_global_widget.h ui_detail_dlg.h ui_data_widget.h ui_form_widget.h ui_analysis_detail_widget.h ui_modify_product_dlg.h ui_new_file.h ui_video_widget.h ui_modifyproductdlg.h ui_addtostddatabasedlg.h ui_widget.h
 ui_pwhmanagementmain.h: pwhmanagementmain.ui \
 		../../../qt-build/qt/bin/uic.exe \
 		interface_control/PwhManagementRibbon.h \
@@ -3319,6 +3561,7 @@ ui_pwhmanagement.h: Pwh/pwhmanagement.ui \
 		../../../qt-build/qt/bin/uic.exe \
 		interface_control/global_widget.h \
 		video/video_widget.h \
+		interface_control/widget.h \
 		../../../qt-build/qt/include/QtWidgets/QWidget \
 		../../../qt-build/qt/include/QtWidgets/qwidget.h \
 		../../../qt-build/qt/include/QtWidgets/qtwidgetsglobal.h \
@@ -3618,7 +3861,107 @@ ui_pwhmanagement.h: Pwh/pwhmanagement.ui \
 		../../../qt-build/qt/include/QtAV/Statistics.h \
 		../../../qt-build/qt/include/QtAV/VideoDecoder.h \
 		../../../qt-build/qt/include/QtAV/AVDecoder.h \
-		../../../qt-build/qt/include/QtAV/AVError.h
+		../../../qt-build/qt/include/QtAV/AVError.h \
+		../../../qt-build/qt/include/QtWidgets/QWidget \
+		../../../qt-build/qt/include/QtWidgets/qwidget.h \
+		../../../qt-build/qt/include/QtWidgets/qtwidgetsglobal.h \
+		../../../qt-build/qt/include/QtGui/qtguiglobal.h \
+		../../../qt-build/qt/include/QtCore/qglobal.h \
+		../../../qt-build/qt/include/QtCore/qconfig-bootstrapped.h \
+		../../../qt-build/qt/include/QtCore/qconfig.h \
+		../../../qt-build/qt/include/QtCore/qtcore-config.h \
+		../../../qt-build/qt/include/QtCore/qsystemdetection.h \
+		../../../qt-build/qt/include/QtCore/qprocessordetection.h \
+		../../../qt-build/qt/include/QtCore/qcompilerdetection.h \
+		../../../qt-build/qt/include/QtCore/qtypeinfo.h \
+		../../../qt-build/qt/include/QtCore/qsysinfo.h \
+		../../../qt-build/qt/include/QtCore/qlogging.h \
+		../../../qt-build/qt/include/QtCore/qflags.h \
+		../../../qt-build/qt/include/QtCore/qatomic.h \
+		../../../qt-build/qt/include/QtCore/qbasicatomic.h \
+		../../../qt-build/qt/include/QtCore/qatomic_bootstrap.h \
+		../../../qt-build/qt/include/QtCore/qgenericatomic.h \
+		../../../qt-build/qt/include/QtCore/qatomic_cxx11.h \
+		../../../qt-build/qt/include/QtCore/qatomic_msvc.h \
+		../../../qt-build/qt/include/QtCore/qglobalstatic.h \
+		../../../qt-build/qt/include/QtCore/qmutex.h \
+		../../../qt-build/qt/include/QtCore/qnumeric.h \
+		../../../qt-build/qt/include/QtCore/qversiontagging.h \
+		../../../qt-build/qt/include/QtGui/qtgui-config.h \
+		../../../qt-build/qt/include/QtWidgets/qtwidgets-config.h \
+		../../../qt-build/qt/include/QtGui/qwindowdefs.h \
+		../../../qt-build/qt/include/QtCore/qobjectdefs.h \
+		../../../qt-build/qt/include/QtCore/qnamespace.h \
+		../../../qt-build/qt/include/QtCore/qobjectdefs_impl.h \
+		../../../qt-build/qt/include/QtGui/qwindowdefs_win.h \
+		../../../qt-build/qt/include/QtCore/qobject.h \
+		../../../qt-build/qt/include/QtCore/qstring.h \
+		../../../qt-build/qt/include/QtCore/qchar.h \
+		../../../qt-build/qt/include/QtCore/qbytearray.h \
+		../../../qt-build/qt/include/QtCore/qrefcount.h \
+		../../../qt-build/qt/include/QtCore/qarraydata.h \
+		../../../qt-build/qt/include/QtCore/qstringbuilder.h \
+		../../../qt-build/qt/include/QtCore/qlist.h \
+		../../../qt-build/qt/include/QtCore/qalgorithms.h \
+		../../../qt-build/qt/include/QtCore/qiterator.h \
+		../../../qt-build/qt/include/QtCore/qhashfunctions.h \
+		../../../qt-build/qt/include/QtCore/qpair.h \
+		../../../qt-build/qt/include/QtCore/qbytearraylist.h \
+		../../../qt-build/qt/include/QtCore/qstringlist.h \
+		../../../qt-build/qt/include/QtCore/qregexp.h \
+		../../../qt-build/qt/include/QtCore/qstringmatcher.h \
+		../../../qt-build/qt/include/QtCore/qcoreevent.h \
+		../../../qt-build/qt/include/QtCore/qscopedpointer.h \
+		../../../qt-build/qt/include/QtCore/qmetatype.h \
+		../../../qt-build/qt/include/QtCore/qvarlengtharray.h \
+		../../../qt-build/qt/include/QtCore/qcontainerfwd.h \
+		../../../qt-build/qt/include/QtCore/qobject_impl.h \
+		../../../qt-build/qt/include/QtCore/qmargins.h \
+		../../../qt-build/qt/include/QtGui/qpaintdevice.h \
+		../../../qt-build/qt/include/QtCore/qrect.h \
+		../../../qt-build/qt/include/QtCore/qsize.h \
+		../../../qt-build/qt/include/QtCore/qpoint.h \
+		../../../qt-build/qt/include/QtGui/qpalette.h \
+		../../../qt-build/qt/include/QtGui/qcolor.h \
+		../../../qt-build/qt/include/QtGui/qrgb.h \
+		../../../qt-build/qt/include/QtGui/qrgba64.h \
+		../../../qt-build/qt/include/QtGui/qbrush.h \
+		../../../qt-build/qt/include/QtCore/qvector.h \
+		../../../qt-build/qt/include/QtGui/qmatrix.h \
+		../../../qt-build/qt/include/QtGui/qpolygon.h \
+		../../../qt-build/qt/include/QtGui/qregion.h \
+		../../../qt-build/qt/include/QtCore/qdatastream.h \
+		../../../qt-build/qt/include/QtCore/qiodevice.h \
+		../../../qt-build/qt/include/QtCore/qline.h \
+		../../../qt-build/qt/include/QtGui/qtransform.h \
+		../../../qt-build/qt/include/QtGui/qpainterpath.h \
+		../../../qt-build/qt/include/QtGui/qimage.h \
+		../../../qt-build/qt/include/QtGui/qpixelformat.h \
+		../../../qt-build/qt/include/QtGui/qpixmap.h \
+		../../../qt-build/qt/include/QtCore/qsharedpointer.h \
+		../../../qt-build/qt/include/QtCore/qshareddata.h \
+		../../../qt-build/qt/include/QtCore/qhash.h \
+		../../../qt-build/qt/include/QtCore/qsharedpointer_impl.h \
+		../../../qt-build/qt/include/QtGui/qfont.h \
+		../../../qt-build/qt/include/QtGui/qfontmetrics.h \
+		../../../qt-build/qt/include/QtGui/qfontinfo.h \
+		../../../qt-build/qt/include/QtWidgets/qsizepolicy.h \
+		../../../qt-build/qt/include/QtGui/qcursor.h \
+		../../../qt-build/qt/include/QtGui/qkeysequence.h \
+		../../../qt-build/qt/include/QtGui/qevent.h \
+		../../../qt-build/qt/include/QtCore/qvariant.h \
+		../../../qt-build/qt/include/QtCore/qmap.h \
+		../../../qt-build/qt/include/QtCore/qdebug.h \
+		../../../qt-build/qt/include/QtCore/qtextstream.h \
+		../../../qt-build/qt/include/QtCore/qlocale.h \
+		../../../qt-build/qt/include/QtCore/qset.h \
+		../../../qt-build/qt/include/QtCore/qcontiguouscache.h \
+		../../../qt-build/qt/include/QtCore/qurl.h \
+		../../../qt-build/qt/include/QtCore/qurlquery.h \
+		../../../qt-build/qt/include/QtCore/qfile.h \
+		../../../qt-build/qt/include/QtCore/qfiledevice.h \
+		../../../qt-build/qt/include/QtGui/qvector2d.h \
+		../../../qt-build/qt/include/QtGui/qtouchdevice.h
 	D:\qt-build\qt\bin\uic.exe Pwh\pwhmanagement.ui -o ui_pwhmanagement.h
 
 ui_global_widget.h: interface_control/global_widget.ui \
@@ -4447,6 +4790,10 @@ ui_addtostddatabasedlg.h: interface_control/addtostddatabasedlg.ui \
 		../../../qt-build/qt/bin/uic.exe
 	D:\qt-build\qt\bin\uic.exe interface_control\addtostddatabasedlg.ui -o ui_addtostddatabasedlg.h
 
+ui_widget.h: interface_control/widget.ui \
+		../../../qt-build/qt/bin/uic.exe
+	D:\qt-build\qt\bin\uic.exe interface_control\widget.ui -o ui_widget.h
+
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
@@ -4982,13 +5329,13 @@ debug/PwhManagement.o: Pwh/PwhManagement.cc Pwh/PwhManagement.h \
 		../../../qt-build/qt/include/QtWidgets/QLabel \
 		../../../qt-build/qt/include/QtWidgets/qlabel.h \
 		../../../qt-build/qt/include/QtWidgets/QSpacerItem \
-		../../../qt-build/qt/include/QtWidgets/QTableWidget \
 		../../../qt-build/qt/include/QtWidgets/QTreeView \
 		../../../qt-build/qt/include/QtWidgets/qtreeview.h \
 		../../../qt-build/qt/include/QtWidgets/QVBoxLayout \
 		interface_control/global_widget.h \
 		model/product_info_model.h \
 		Model/json_model.h \
+		interface_control/widget.h \
 		video/video_widget.h \
 		video/video_player.hpp \
 		../../../qt-build/qt/include/QtAVWidgets/QtAVWidgets \
@@ -8844,8 +9191,346 @@ debug/AddtoStdDatabaseDlg.o: interface_control/AddtoStdDatabaseDlg.cpp interface
 		../../../qt-build/qt/include/QtCore/qfiledevice.h \
 		../../../qt-build/qt/include/QtGui/qvector2d.h \
 		../../../qt-build/qt/include/QtGui/qtouchdevice.h \
-		ui_addtostddatabasedlg.h
+		ui_addtostddatabasedlg.h \
+		../../../qt-build/qt/include/QtCore/QVariant \
+		../../../qt-build/qt/include/QtWidgets/QAction \
+		../../../qt-build/qt/include/QtWidgets/qaction.h \
+		../../../qt-build/qt/include/QtGui/qicon.h \
+		../../../qt-build/qt/include/QtWidgets/qactiongroup.h \
+		../../../qt-build/qt/include/QtWidgets/QApplication \
+		../../../qt-build/qt/include/QtWidgets/qapplication.h \
+		../../../qt-build/qt/include/QtCore/qcoreapplication.h \
+		../../../qt-build/qt/include/QtCore/qeventloop.h \
+		../../../qt-build/qt/include/QtWidgets/qdesktopwidget.h \
+		../../../qt-build/qt/include/QtGui/qguiapplication.h \
+		../../../qt-build/qt/include/QtGui/qinputmethod.h \
+		../../../qt-build/qt/include/QtWidgets/QButtonGroup \
+		../../../qt-build/qt/include/QtWidgets/qbuttongroup.h \
+		../../../qt-build/qt/include/QtWidgets/QHBoxLayout \
+		../../../qt-build/qt/include/QtWidgets/qboxlayout.h \
+		../../../qt-build/qt/include/QtWidgets/qlayout.h \
+		../../../qt-build/qt/include/QtWidgets/qlayoutitem.h \
+		../../../qt-build/qt/include/QtWidgets/qgridlayout.h \
+		../../../qt-build/qt/include/QtWidgets/QHeaderView \
+		../../../qt-build/qt/include/QtWidgets/qheaderview.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractitemview.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractscrollarea.h \
+		../../../qt-build/qt/include/QtWidgets/qframe.h \
+		../../../qt-build/qt/include/QtCore/qabstractitemmodel.h \
+		../../../qt-build/qt/include/QtCore/qitemselectionmodel.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractitemdelegate.h \
+		../../../qt-build/qt/include/QtWidgets/qstyleoption.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractspinbox.h \
+		../../../qt-build/qt/include/QtGui/qvalidator.h \
+		../../../qt-build/qt/include/QtCore/qregularexpression.h \
+		../../../qt-build/qt/include/QtWidgets/qslider.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractslider.h \
+		../../../qt-build/qt/include/QtWidgets/qstyle.h \
+		../../../qt-build/qt/include/QtWidgets/qtabbar.h \
+		../../../qt-build/qt/include/QtWidgets/qtabwidget.h \
+		../../../qt-build/qt/include/QtWidgets/qrubberband.h \
+		../../../qt-build/qt/include/QtWidgets/QListWidget \
+		../../../qt-build/qt/include/QtWidgets/qlistwidget.h \
+		../../../qt-build/qt/include/QtWidgets/qlistview.h \
+		../../../qt-build/qt/include/QtWidgets/QPushButton \
+		../../../qt-build/qt/include/QtWidgets/qpushbutton.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractbutton.h \
+		../../../qt-build/qt/include/QtWidgets/QSpacerItem \
+		../../../qt-build/qt/include/QtWidgets/QTreeWidget \
+		../../../qt-build/qt/include/QtWidgets/qtreewidget.h \
+		../../../qt-build/qt/include/QtWidgets/qtreeview.h \
+		../../../qt-build/qt/include/QtWidgets/qtreewidgetitemiterator.h \
+		../../../qt-build/qt/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\AddtoStdDatabaseDlg.o interface_control\AddtoStdDatabaseDlg.cpp
+
+debug/widget.o: interface_control/widget.cpp interface_control/widget.h \
+		../../../qt-build/qt/include/QtWidgets/QWidget \
+		../../../qt-build/qt/include/QtWidgets/qwidget.h \
+		../../../qt-build/qt/include/QtWidgets/qtwidgetsglobal.h \
+		../../../qt-build/qt/include/QtGui/qtguiglobal.h \
+		../../../qt-build/qt/include/QtCore/qglobal.h \
+		../../../qt-build/qt/include/QtCore/qconfig-bootstrapped.h \
+		../../../qt-build/qt/include/QtCore/qconfig.h \
+		../../../qt-build/qt/include/QtCore/qtcore-config.h \
+		../../../qt-build/qt/include/QtCore/qsystemdetection.h \
+		../../../qt-build/qt/include/QtCore/qprocessordetection.h \
+		../../../qt-build/qt/include/QtCore/qcompilerdetection.h \
+		../../../qt-build/qt/include/QtCore/qtypeinfo.h \
+		../../../qt-build/qt/include/QtCore/qsysinfo.h \
+		../../../qt-build/qt/include/QtCore/qlogging.h \
+		../../../qt-build/qt/include/QtCore/qflags.h \
+		../../../qt-build/qt/include/QtCore/qatomic.h \
+		../../../qt-build/qt/include/QtCore/qbasicatomic.h \
+		../../../qt-build/qt/include/QtCore/qatomic_bootstrap.h \
+		../../../qt-build/qt/include/QtCore/qgenericatomic.h \
+		../../../qt-build/qt/include/QtCore/qatomic_cxx11.h \
+		../../../qt-build/qt/include/QtCore/qatomic_msvc.h \
+		../../../qt-build/qt/include/QtCore/qglobalstatic.h \
+		../../../qt-build/qt/include/QtCore/qmutex.h \
+		../../../qt-build/qt/include/QtCore/qnumeric.h \
+		../../../qt-build/qt/include/QtCore/qversiontagging.h \
+		../../../qt-build/qt/include/QtGui/qtgui-config.h \
+		../../../qt-build/qt/include/QtWidgets/qtwidgets-config.h \
+		../../../qt-build/qt/include/QtGui/qwindowdefs.h \
+		../../../qt-build/qt/include/QtCore/qobjectdefs.h \
+		../../../qt-build/qt/include/QtCore/qnamespace.h \
+		../../../qt-build/qt/include/QtCore/qobjectdefs_impl.h \
+		../../../qt-build/qt/include/QtGui/qwindowdefs_win.h \
+		../../../qt-build/qt/include/QtCore/qobject.h \
+		../../../qt-build/qt/include/QtCore/qstring.h \
+		../../../qt-build/qt/include/QtCore/qchar.h \
+		../../../qt-build/qt/include/QtCore/qbytearray.h \
+		../../../qt-build/qt/include/QtCore/qrefcount.h \
+		../../../qt-build/qt/include/QtCore/qarraydata.h \
+		../../../qt-build/qt/include/QtCore/qstringbuilder.h \
+		../../../qt-build/qt/include/QtCore/qlist.h \
+		../../../qt-build/qt/include/QtCore/qalgorithms.h \
+		../../../qt-build/qt/include/QtCore/qiterator.h \
+		../../../qt-build/qt/include/QtCore/qhashfunctions.h \
+		../../../qt-build/qt/include/QtCore/qpair.h \
+		../../../qt-build/qt/include/QtCore/qbytearraylist.h \
+		../../../qt-build/qt/include/QtCore/qstringlist.h \
+		../../../qt-build/qt/include/QtCore/qregexp.h \
+		../../../qt-build/qt/include/QtCore/qstringmatcher.h \
+		../../../qt-build/qt/include/QtCore/qcoreevent.h \
+		../../../qt-build/qt/include/QtCore/qscopedpointer.h \
+		../../../qt-build/qt/include/QtCore/qmetatype.h \
+		../../../qt-build/qt/include/QtCore/qvarlengtharray.h \
+		../../../qt-build/qt/include/QtCore/qcontainerfwd.h \
+		../../../qt-build/qt/include/QtCore/qobject_impl.h \
+		../../../qt-build/qt/include/QtCore/qmargins.h \
+		../../../qt-build/qt/include/QtGui/qpaintdevice.h \
+		../../../qt-build/qt/include/QtCore/qrect.h \
+		../../../qt-build/qt/include/QtCore/qsize.h \
+		../../../qt-build/qt/include/QtCore/qpoint.h \
+		../../../qt-build/qt/include/QtGui/qpalette.h \
+		../../../qt-build/qt/include/QtGui/qcolor.h \
+		../../../qt-build/qt/include/QtGui/qrgb.h \
+		../../../qt-build/qt/include/QtGui/qrgba64.h \
+		../../../qt-build/qt/include/QtGui/qbrush.h \
+		../../../qt-build/qt/include/QtCore/qvector.h \
+		../../../qt-build/qt/include/QtGui/qmatrix.h \
+		../../../qt-build/qt/include/QtGui/qpolygon.h \
+		../../../qt-build/qt/include/QtGui/qregion.h \
+		../../../qt-build/qt/include/QtCore/qdatastream.h \
+		../../../qt-build/qt/include/QtCore/qiodevice.h \
+		../../../qt-build/qt/include/QtCore/qline.h \
+		../../../qt-build/qt/include/QtGui/qtransform.h \
+		../../../qt-build/qt/include/QtGui/qpainterpath.h \
+		../../../qt-build/qt/include/QtGui/qimage.h \
+		../../../qt-build/qt/include/QtGui/qpixelformat.h \
+		../../../qt-build/qt/include/QtGui/qpixmap.h \
+		../../../qt-build/qt/include/QtCore/qsharedpointer.h \
+		../../../qt-build/qt/include/QtCore/qshareddata.h \
+		../../../qt-build/qt/include/QtCore/qhash.h \
+		../../../qt-build/qt/include/QtCore/qsharedpointer_impl.h \
+		../../../qt-build/qt/include/QtGui/qfont.h \
+		../../../qt-build/qt/include/QtGui/qfontmetrics.h \
+		../../../qt-build/qt/include/QtGui/qfontinfo.h \
+		../../../qt-build/qt/include/QtWidgets/qsizepolicy.h \
+		../../../qt-build/qt/include/QtGui/qcursor.h \
+		../../../qt-build/qt/include/QtGui/qkeysequence.h \
+		../../../qt-build/qt/include/QtGui/qevent.h \
+		../../../qt-build/qt/include/QtCore/qvariant.h \
+		../../../qt-build/qt/include/QtCore/qmap.h \
+		../../../qt-build/qt/include/QtCore/qdebug.h \
+		../../../qt-build/qt/include/QtCore/qtextstream.h \
+		../../../qt-build/qt/include/QtCore/qlocale.h \
+		../../../qt-build/qt/include/QtCore/qset.h \
+		../../../qt-build/qt/include/QtCore/qcontiguouscache.h \
+		../../../qt-build/qt/include/QtCore/qurl.h \
+		../../../qt-build/qt/include/QtCore/qurlquery.h \
+		../../../qt-build/qt/include/QtCore/qfile.h \
+		../../../qt-build/qt/include/QtCore/qfiledevice.h \
+		../../../qt-build/qt/include/QtGui/qvector2d.h \
+		../../../qt-build/qt/include/QtGui/qtouchdevice.h \
+		ui_widget.h \
+		../../../qt-build/qt/include/QtCore/QVariant \
+		../../../qt-build/qt/include/QtWidgets/QAction \
+		../../../qt-build/qt/include/QtWidgets/qaction.h \
+		../../../qt-build/qt/include/QtGui/qicon.h \
+		../../../qt-build/qt/include/QtWidgets/qactiongroup.h \
+		../../../qt-build/qt/include/QtWidgets/QApplication \
+		../../../qt-build/qt/include/QtWidgets/qapplication.h \
+		../../../qt-build/qt/include/QtCore/qcoreapplication.h \
+		../../../qt-build/qt/include/QtCore/qeventloop.h \
+		../../../qt-build/qt/include/QtWidgets/qdesktopwidget.h \
+		../../../qt-build/qt/include/QtGui/qguiapplication.h \
+		../../../qt-build/qt/include/QtGui/qinputmethod.h \
+		../../../qt-build/qt/include/QtWidgets/QButtonGroup \
+		../../../qt-build/qt/include/QtWidgets/qbuttongroup.h \
+		../../../qt-build/qt/include/QtWidgets/QGridLayout \
+		../../../qt-build/qt/include/QtWidgets/qgridlayout.h \
+		../../../qt-build/qt/include/QtWidgets/qlayout.h \
+		../../../qt-build/qt/include/QtWidgets/qlayoutitem.h \
+		../../../qt-build/qt/include/QtWidgets/qboxlayout.h \
+		../../../qt-build/qt/include/QtWidgets/QHeaderView \
+		../../../qt-build/qt/include/QtWidgets/qheaderview.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractitemview.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractscrollarea.h \
+		../../../qt-build/qt/include/QtWidgets/qframe.h \
+		../../../qt-build/qt/include/QtCore/qabstractitemmodel.h \
+		../../../qt-build/qt/include/QtCore/qitemselectionmodel.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractitemdelegate.h \
+		../../../qt-build/qt/include/QtWidgets/qstyleoption.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractspinbox.h \
+		../../../qt-build/qt/include/QtGui/qvalidator.h \
+		../../../qt-build/qt/include/QtCore/qregularexpression.h \
+		../../../qt-build/qt/include/QtWidgets/qslider.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractslider.h \
+		../../../qt-build/qt/include/QtWidgets/qstyle.h \
+		../../../qt-build/qt/include/QtWidgets/qtabbar.h \
+		../../../qt-build/qt/include/QtWidgets/qtabwidget.h \
+		../../../qt-build/qt/include/QtWidgets/qrubberband.h \
+		../../../qt-build/qt/include/QtWidgets/QLabel \
+		../../../qt-build/qt/include/QtWidgets/qlabel.h \
+		../../../qt-build/qt/include/QtWidgets/QTableWidget \
+		../../../qt-build/qt/include/QtWidgets/qtablewidget.h \
+		../../../qt-build/qt/include/QtWidgets/qtableview.h \
+		../../../qt-build/qt/include/QtWidgets/QVBoxLayout
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\widget.o interface_control\widget.cpp
+
+debug/JsonTree.o: interface_control/JsonTree.cc interface_control/JsonTree.h \
+		../../../qt-build/qt/include/QtWidgets/QTreeWidget \
+		../../../qt-build/qt/include/QtWidgets/qtreewidget.h \
+		../../../qt-build/qt/include/QtWidgets/qtwidgetsglobal.h \
+		../../../qt-build/qt/include/QtGui/qtguiglobal.h \
+		../../../qt-build/qt/include/QtCore/qglobal.h \
+		../../../qt-build/qt/include/QtCore/qconfig-bootstrapped.h \
+		../../../qt-build/qt/include/QtCore/qconfig.h \
+		../../../qt-build/qt/include/QtCore/qtcore-config.h \
+		../../../qt-build/qt/include/QtCore/qsystemdetection.h \
+		../../../qt-build/qt/include/QtCore/qprocessordetection.h \
+		../../../qt-build/qt/include/QtCore/qcompilerdetection.h \
+		../../../qt-build/qt/include/QtCore/qtypeinfo.h \
+		../../../qt-build/qt/include/QtCore/qsysinfo.h \
+		../../../qt-build/qt/include/QtCore/qlogging.h \
+		../../../qt-build/qt/include/QtCore/qflags.h \
+		../../../qt-build/qt/include/QtCore/qatomic.h \
+		../../../qt-build/qt/include/QtCore/qbasicatomic.h \
+		../../../qt-build/qt/include/QtCore/qatomic_bootstrap.h \
+		../../../qt-build/qt/include/QtCore/qgenericatomic.h \
+		../../../qt-build/qt/include/QtCore/qatomic_cxx11.h \
+		../../../qt-build/qt/include/QtCore/qatomic_msvc.h \
+		../../../qt-build/qt/include/QtCore/qglobalstatic.h \
+		../../../qt-build/qt/include/QtCore/qmutex.h \
+		../../../qt-build/qt/include/QtCore/qnumeric.h \
+		../../../qt-build/qt/include/QtCore/qversiontagging.h \
+		../../../qt-build/qt/include/QtGui/qtgui-config.h \
+		../../../qt-build/qt/include/QtWidgets/qtwidgets-config.h \
+		../../../qt-build/qt/include/QtWidgets/qtreeview.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractitemview.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractscrollarea.h \
+		../../../qt-build/qt/include/QtWidgets/qframe.h \
+		../../../qt-build/qt/include/QtWidgets/qwidget.h \
+		../../../qt-build/qt/include/QtGui/qwindowdefs.h \
+		../../../qt-build/qt/include/QtCore/qobjectdefs.h \
+		../../../qt-build/qt/include/QtCore/qnamespace.h \
+		../../../qt-build/qt/include/QtCore/qobjectdefs_impl.h \
+		../../../qt-build/qt/include/QtGui/qwindowdefs_win.h \
+		../../../qt-build/qt/include/QtCore/qobject.h \
+		../../../qt-build/qt/include/QtCore/qstring.h \
+		../../../qt-build/qt/include/QtCore/qchar.h \
+		../../../qt-build/qt/include/QtCore/qbytearray.h \
+		../../../qt-build/qt/include/QtCore/qrefcount.h \
+		../../../qt-build/qt/include/QtCore/qarraydata.h \
+		../../../qt-build/qt/include/QtCore/qstringbuilder.h \
+		../../../qt-build/qt/include/QtCore/qlist.h \
+		../../../qt-build/qt/include/QtCore/qalgorithms.h \
+		../../../qt-build/qt/include/QtCore/qiterator.h \
+		../../../qt-build/qt/include/QtCore/qhashfunctions.h \
+		../../../qt-build/qt/include/QtCore/qpair.h \
+		../../../qt-build/qt/include/QtCore/qbytearraylist.h \
+		../../../qt-build/qt/include/QtCore/qstringlist.h \
+		../../../qt-build/qt/include/QtCore/qregexp.h \
+		../../../qt-build/qt/include/QtCore/qstringmatcher.h \
+		../../../qt-build/qt/include/QtCore/qcoreevent.h \
+		../../../qt-build/qt/include/QtCore/qscopedpointer.h \
+		../../../qt-build/qt/include/QtCore/qmetatype.h \
+		../../../qt-build/qt/include/QtCore/qvarlengtharray.h \
+		../../../qt-build/qt/include/QtCore/qcontainerfwd.h \
+		../../../qt-build/qt/include/QtCore/qobject_impl.h \
+		../../../qt-build/qt/include/QtCore/qmargins.h \
+		../../../qt-build/qt/include/QtGui/qpaintdevice.h \
+		../../../qt-build/qt/include/QtCore/qrect.h \
+		../../../qt-build/qt/include/QtCore/qsize.h \
+		../../../qt-build/qt/include/QtCore/qpoint.h \
+		../../../qt-build/qt/include/QtGui/qpalette.h \
+		../../../qt-build/qt/include/QtGui/qcolor.h \
+		../../../qt-build/qt/include/QtGui/qrgb.h \
+		../../../qt-build/qt/include/QtGui/qrgba64.h \
+		../../../qt-build/qt/include/QtGui/qbrush.h \
+		../../../qt-build/qt/include/QtCore/qvector.h \
+		../../../qt-build/qt/include/QtGui/qmatrix.h \
+		../../../qt-build/qt/include/QtGui/qpolygon.h \
+		../../../qt-build/qt/include/QtGui/qregion.h \
+		../../../qt-build/qt/include/QtCore/qdatastream.h \
+		../../../qt-build/qt/include/QtCore/qiodevice.h \
+		../../../qt-build/qt/include/QtCore/qline.h \
+		../../../qt-build/qt/include/QtGui/qtransform.h \
+		../../../qt-build/qt/include/QtGui/qpainterpath.h \
+		../../../qt-build/qt/include/QtGui/qimage.h \
+		../../../qt-build/qt/include/QtGui/qpixelformat.h \
+		../../../qt-build/qt/include/QtGui/qpixmap.h \
+		../../../qt-build/qt/include/QtCore/qsharedpointer.h \
+		../../../qt-build/qt/include/QtCore/qshareddata.h \
+		../../../qt-build/qt/include/QtCore/qhash.h \
+		../../../qt-build/qt/include/QtCore/qsharedpointer_impl.h \
+		../../../qt-build/qt/include/QtGui/qfont.h \
+		../../../qt-build/qt/include/QtGui/qfontmetrics.h \
+		../../../qt-build/qt/include/QtGui/qfontinfo.h \
+		../../../qt-build/qt/include/QtWidgets/qsizepolicy.h \
+		../../../qt-build/qt/include/QtGui/qcursor.h \
+		../../../qt-build/qt/include/QtGui/qkeysequence.h \
+		../../../qt-build/qt/include/QtGui/qevent.h \
+		../../../qt-build/qt/include/QtCore/qvariant.h \
+		../../../qt-build/qt/include/QtCore/qmap.h \
+		../../../qt-build/qt/include/QtCore/qdebug.h \
+		../../../qt-build/qt/include/QtCore/qtextstream.h \
+		../../../qt-build/qt/include/QtCore/qlocale.h \
+		../../../qt-build/qt/include/QtCore/qset.h \
+		../../../qt-build/qt/include/QtCore/qcontiguouscache.h \
+		../../../qt-build/qt/include/QtCore/qurl.h \
+		../../../qt-build/qt/include/QtCore/qurlquery.h \
+		../../../qt-build/qt/include/QtCore/qfile.h \
+		../../../qt-build/qt/include/QtCore/qfiledevice.h \
+		../../../qt-build/qt/include/QtGui/qvector2d.h \
+		../../../qt-build/qt/include/QtGui/qtouchdevice.h \
+		../../../qt-build/qt/include/QtCore/qabstractitemmodel.h \
+		../../../qt-build/qt/include/QtCore/qitemselectionmodel.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractitemdelegate.h \
+		../../../qt-build/qt/include/QtWidgets/qstyleoption.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractspinbox.h \
+		../../../qt-build/qt/include/QtGui/qvalidator.h \
+		../../../qt-build/qt/include/QtCore/qregularexpression.h \
+		../../../qt-build/qt/include/QtGui/qicon.h \
+		../../../qt-build/qt/include/QtWidgets/qslider.h \
+		../../../qt-build/qt/include/QtWidgets/qabstractslider.h \
+		../../../qt-build/qt/include/QtWidgets/qstyle.h \
+		../../../qt-build/qt/include/QtWidgets/qtabbar.h \
+		../../../qt-build/qt/include/QtWidgets/qtabwidget.h \
+		../../../qt-build/qt/include/QtWidgets/qrubberband.h \
+		../../../qt-build/qt/include/QtWidgets/qtreewidgetitemiterator.h \
+		../../../qt-build/qt/include/QtCore/QStringList \
+		../../../qt-build/qt/include/QtWidgets/QTreeWidgetItem \
+		../../../qt-build/qt/include/QtWidgets/QMessageBox \
+		../../../qt-build/qt/include/QtWidgets/qmessagebox.h \
+		../../../qt-build/qt/include/QtWidgets/qdialog.h \
+		../../../qt-build/qt/include/QtWidgets/QInputDialog \
+		../../../qt-build/qt/include/QtWidgets/qinputdialog.h \
+		../../../qt-build/qt/include/QtWidgets/qlineedit.h \
+		../../../qt-build/qt/include/QtGui/qtextcursor.h \
+		../../../qt-build/qt/include/QtGui/qtextformat.h \
+		../../../qt-build/qt/include/QtGui/qpen.h \
+		../../../qt-build/qt/include/QtGui/qtextoption.h \
+		../../../qt-build/qt/include/QtGui/QMouseEvent \
+		../../../qt-build/qt/include/QtWidgets/QAction \
+		../../../qt-build/qt/include/QtWidgets/qaction.h \
+		../../../qt-build/qt/include/QtWidgets/qactiongroup.h \
+		../../../qt-build/qt/include/QtWidgets/QMenu \
+		../../../qt-build/qt/include/QtWidgets/qmenu.h \
+		../../../qt-build/qt/include/QtCore/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\JsonTree.o interface_control\JsonTree.cc
 
 debug/moc_PwhManagementMain.o: debug/moc_PwhManagementMain.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_PwhManagementMain.o debug\moc_PwhManagementMain.cpp
@@ -8918,6 +9603,12 @@ debug/moc_ModifyProductDlg.o: debug/moc_ModifyProductDlg.cpp
 
 debug/moc_AddtoStdDatabaseDlg.o: debug/moc_AddtoStdDatabaseDlg.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_AddtoStdDatabaseDlg.o debug\moc_AddtoStdDatabaseDlg.cpp
+
+debug/moc_widget.o: debug/moc_widget.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_widget.o debug\moc_widget.cpp
+
+debug/moc_JsonTree.o: debug/moc_JsonTree.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\moc_JsonTree.o debug\moc_JsonTree.cpp
 
 ####### Install
 

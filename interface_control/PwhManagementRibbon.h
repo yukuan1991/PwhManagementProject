@@ -10,10 +10,12 @@ signals:
     void modifyClicked();
     void deleteClicked();
 
+    void addStdDatabaseClicked();
     void detailedInfoClicked();
 public:
     PwhManagementRibbon(QWidget* parent = nullptr);
     RibbonTool* add_, *modify_, * delete_;
+    RibbonTool* addStdDatabase_;
     RibbonTool* detailedInfo_;
 private:
     void initConn();

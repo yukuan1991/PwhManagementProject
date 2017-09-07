@@ -24,6 +24,7 @@ public:
 public:
     void on_button_detail_clicked();
     void on_button_modify_clicked();
+    void on_button_addStdDatabase_clicked();
 private slots:
     void on_tree_product_clicked(const QModelIndex& index);
     void onTreeProductClicked(const QVariant&);

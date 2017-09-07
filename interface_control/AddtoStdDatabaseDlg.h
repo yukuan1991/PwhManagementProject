@@ -15,6 +15,12 @@ public:
     explicit AddtoStdDatabaseDlg(QWidget *parent = 0);
     ~AddtoStdDatabaseDlg();
 
+    void load(const QVariant& data);
+    QVariant dump () const;
+
+    void onCheckAllStateChanged(int state);
+    void onButtonConfirmClicked();
+
 private:
     Ui::AddtoStdDatabaseDlg *ui;
 };

@@ -17,7 +17,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QCheckBox" name="checkBox">
        <property name="text">
         <string>全选</string>
        </property>
@@ -44,7 +44,7 @@
       <widget class="QListWidget" name="listWidget"/>
      </item>
      <item>
-      <widget class="QTreeWidget" name="treeWidget">
+      <widget class="JsonTree" name="treeWidget">
        <column>
         <property name="text">
          <string notr="true">1</string>
@@ -57,16 +57,16 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="buttonConfirm">
        <property name="text">
-        <string>PushButton</string>
+        <string>确定</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="buttonCancel">
        <property name="text">
-        <string>PushButton</string>
+        <string>取消</string>
        </property>
       </widget>
      </item>
@@ -74,6 +74,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>JsonTree</class>
+   <extends>QTreeWidget</extends>
+   <header>interface_control/JsonTree.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

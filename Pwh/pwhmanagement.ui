@@ -15,7 +15,7 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1,0,1">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QLabel" name="label">
        <property name="text">
@@ -34,9 +34,18 @@
       </widget>
      </item>
      <item>
-      <widget class="video_widget" name="widget_video_player" native="true"/>
+      <widget class="JsonTree" name="treeWidget">
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
+      </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="video_widget" name="widget_video_player" native="true"/>
    </item>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -189,7 +198,7 @@
       <widget class="global_widget" name="widget_global" native="true"/>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidget"/>
+      <widget class="Widget" name="widget" native="true"/>
      </item>
     </layout>
    </item>
@@ -207,6 +216,17 @@
    <extends>QWidget</extends>
    <header>video/video_widget.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Widget</class>
+   <extends>QWidget</extends>
+   <header>interface_control/widget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>JsonTree</class>
+   <extends>QTreeWidget</extends>
+   <header>interface_control/JsonTree.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

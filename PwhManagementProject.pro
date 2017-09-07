@@ -61,7 +61,9 @@ SOURCES += main.cc\
     Model/TreeModel.cpp \
     Model/TreeItem.cpp \
     interface_control/ModifyProductDlg.cpp \
-    interface_control/AddtoStdDatabaseDlg.cpp
+    interface_control/AddtoStdDatabaseDlg.cpp \
+    interface_control/widget.cpp \
+    interface_control/JsonTree.cc
 
 HEADERS  += PwhManagementMain.h \
     Pwh/PwhManagement.h \
@@ -102,7 +104,9 @@ HEADERS  += PwhManagementMain.h \
     Model/TreeModel.h \
     Model/TreeItem.h \
     interface_control/ModifyProductDlg.h \
-    interface_control/AddtoStdDatabaseDlg.h
+    interface_control/AddtoStdDatabaseDlg.h \
+    interface_control/widget.h \
+    interface_control/JsonTree.h
 
 FORMS    += pwhmanagementmain.ui \
     Pwh/pwhmanagement.ui \
@@ -115,7 +119,8 @@ FORMS    += pwhmanagementmain.ui \
     new_file.ui \
     video/video_widget.ui \
     interface_control/modifyproductdlg.ui \
-    interface_control/addtostddatabasedlg.ui
+    interface_control/addtostddatabasedlg.ui \
+    interface_control/widget.ui
 
 LIBS += -lboost_filesystem
 LIBS += -lboost_system

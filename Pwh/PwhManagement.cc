@@ -9,7 +9,8 @@
 #include "interface_control/modify_product_dlg.h"
 #include <QMessageBox>
 #include <QJsonDocument>
-#include <interface_control/ModifyProductDlg.h>
+#include "interface_control/ModifyProductDlg.h"
+#include "interface_control/AddtoStdDatabaseDlg.h"
 
 #include <QDebug>
 
@@ -164,7 +165,17 @@ void PwhManagement::on_button_modify_clicked()
 //        auto path = dlg.get_path();
 //        write_to_file (path, info);
 //        refresh_data();
-//    }
+    //    }
+}
+
+void PwhManagement::on_button_addStdDatabase_clicked()
+{
+    AddtoStdDatabaseDlg dlg;
+
+    if(QDialog::Accepted == dlg.exec())
+    {
+        dlg.dump();
+    }
 }
 
 void PwhManagement::show_data(const nlohmann::json &data, const QString &path)

@@ -19,11 +19,12 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "interface_control/JsonTree.h"
 #include "interface_control/global_widget.h"
+#include "interface_control/widget.h"
 #include "video/video_widget.h"
 
 QT_BEGIN_NAMESPACE
@@ -36,6 +37,7 @@ public:
     QLabel *label;
     QTreeView *tree_product;
     QFrame *line;
+    JsonTree *treeWidget;
     video_widget *widget_video_player;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
@@ -58,7 +60,7 @@ public:
     QLabel *label_unit;
     QSpacerItem *horizontalSpacer_2;
     global_widget *widget_global;
-    QTableWidget *tableWidget;
+    Widget *widget;
 
     void setupUi(QWidget *PwhManagement)
     {
@@ -86,15 +88,21 @@ public:
 
         verticalLayout_2->addWidget(line);
 
+        treeWidget = new JsonTree(PwhManagement);
+        QTreeWidgetItem *__qtreewidgetitem = new QTreeWidgetItem();
+        __qtreewidgetitem->setText(0, QStringLiteral("1"));
+        treeWidget->setHeaderItem(__qtreewidgetitem);
+        treeWidget->setObjectName(QStringLiteral("treeWidget"));
+
+        verticalLayout_2->addWidget(treeWidget);
+
+
+        horizontalLayout->addLayout(verticalLayout_2);
+
         widget_video_player = new video_widget(PwhManagement);
         widget_video_player->setObjectName(QStringLiteral("widget_video_player"));
 
-        verticalLayout_2->addWidget(widget_video_player);
-
-        verticalLayout_2->setStretch(1, 1);
-        verticalLayout_2->setStretch(3, 1);
-
-        horizontalLayout->addLayout(verticalLayout_2);
+        horizontalLayout->addWidget(widget_video_player);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -199,10 +207,10 @@ public:
 
         verticalLayout->addWidget(widget_global);
 
-        tableWidget = new QTableWidget(PwhManagement);
-        tableWidget->setObjectName(QStringLiteral("tableWidget"));
+        widget = new Widget(PwhManagement);
+        widget->setObjectName(QStringLiteral("widget"));
 
-        verticalLayout->addWidget(tableWidget);
+        verticalLayout->addWidget(widget);
 
 
         horizontalLayout->addLayout(verticalLayout);

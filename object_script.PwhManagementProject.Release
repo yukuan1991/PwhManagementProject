@@ -34,6 +34,8 @@ INPUT(
 ./release\TreeItem.o
 ./release\ModifyProductDlg.o
 ./release\AddtoStdDatabaseDlg.o
+./release\widget.o
+./release\JsonTree.o
 ./release\moc_PwhManagementMain.o
 ./release\moc_PwhManagement.o
 ./release\moc_json_model.o
@@ -58,4 +60,6 @@ INPUT(
 ./release\moc_TreeModel.o
 ./release\moc_ModifyProductDlg.o
 ./release\moc_AddtoStdDatabaseDlg.o
+./release\moc_widget.o
+./release\moc_JsonTree.o
 );

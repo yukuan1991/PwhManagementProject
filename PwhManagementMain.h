@@ -22,6 +22,7 @@ private:
 private:
     void detailedInfo();
     void modifyClicked();
+    void addStdDatabase();
 private:
     void initConn();
 private:
