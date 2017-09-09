@@ -1,6 +1,8 @@
 #include "AddtoStdDatabaseDlg.h"
 #include "ui_addtostddatabasedlg.h"
 #include <QMessageBox>
+#include <QFile>
+#include <QJsonDocument>
 
 #include <QDebug>
 
@@ -25,6 +27,14 @@ AddtoStdDatabaseDlg::AddtoStdDatabaseDlg(QWidget *parent) :
         ui->listWidget->item(i)->setFlags(Qt::ItemIsEnabled | Qt::ItemIsUserCheckable);
         ui->listWidget->item(i)->setCheckState(Qt::Unchecked);
     }
+
+    QVariantList varlist;
+    list << "名称" << "类型";
+    ui->treeWidget->setTreeHeader (varlist);
+    QFile file ("test.json");
+    file.open (QFile::ReadOnly);
+    const auto arr = file.readAll ();
+    ui->treeWidget->setTreeData (QJsonDocument::fromJson (arr).toVariant ());
 
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Widget</class>
- <widget class="QWidget" name="Widget">
+ <class>ReportTableWidget</class>
+ <widget class="QWidget" name="ReportTableWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,23 +11,28 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Widget</string>
+   <string>ReportTableWidget</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
-    <number>0</number>
-   </property>
+   <item>
+    <widget class="QLabel" name="label_title">
+     <property name="text">
+      <string>产品工时定额报表</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
    <item>
     <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>测量日期:</string>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
@@ -42,10 +47,17 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="label_9">
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_10">
        <property name="text">
-        <string>测量日期:</string>
+        <string>测量人:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_process_name">
+       <property name="text">
+        <string/>
        </property>
       </widget>
      </item>
@@ -63,36 +75,15 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="label_process_name">
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_workStationNum">
        <property name="text">
         <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="2">
-      <widget class="QLabel" name="label_10">
-       <property name="text">
-        <string>测量人:</string>
        </property>
       </widget>
      </item>
      <item row="1" column="3">
       <widget class="QLabel" name="label_measure_man">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>工站号:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="label_workStationNum">
        <property name="text">
         <string/>
        </property>
@@ -137,6 +128,13 @@
       <widget class="QLabel" name="label_data_unit">
        <property name="text">
         <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>工站号:</string>
        </property>
       </widget>
      </item>

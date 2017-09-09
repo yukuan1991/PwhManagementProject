@@ -12,11 +12,15 @@ signals:
 
     void addStdDatabaseClicked();
     void detailedInfoClicked();
+    void exportPDFClicked();
+    void reportHeaderClicked();
 public:
     PwhManagementRibbon(QWidget* parent = nullptr);
     RibbonTool* add_, *modify_, * delete_;
     RibbonTool* addStdDatabase_;
     RibbonTool* detailedInfo_;
+    RibbonTool* exportPDF_;
+    RibbonTool* reportHeader_;
 private:
     void initConn();
 };

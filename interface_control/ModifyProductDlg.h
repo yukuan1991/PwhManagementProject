@@ -17,6 +17,7 @@ public:
 
     void load(const QVariant& data);
     QVariant dump();
+
 private:
     Ui::ModifyProductDlg *ui;
     QVariantMap currentInfo_;

@@ -1,19 +1,19 @@
-#include "widget.h"
-#include "ui_widget.h"
+#include "ReportTableWidget.h"
+#include "ui_ReportTableWidget.h"
 
-Widget::Widget(QWidget *parent) :
+ReportTableWidget::ReportTableWidget(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Widget)
+    ui(new Ui::ReportTableWidget)
 {
     ui->setupUi(this);
 }
 
-Widget::~Widget()
+ReportTableWidget::~ReportTableWidget()
 {
     delete ui;
 }
 
-QVariant Widget::dump()
+QVariant ReportTableWidget::dump()
 {
     const auto rows = ui->tableWidget->rowCount();
     const auto columns = ui->tableWidget->columnCount();
@@ -37,6 +37,7 @@ QVariant Widget::dump()
 
     QVariantMap totalMap;
     totalMap["table"] = tableList;
+    totalMap["报表名称"] = ui->label_title->text();
     totalMap["所属产品名称"] = ui->label_product_name->text();
     totalMap["所属工艺名称"] = ui->label_product_name->text();
     totalMap["工站号"] = ui->label_product_name->text();
@@ -49,7 +50,7 @@ QVariant Widget::dump()
     return totalMap;
 }
 
-void Widget::load(const QVariant &data)
+void ReportTableWidget::load(const QVariant &data)
 {
     if(data.isNull())
     {
@@ -94,6 +95,7 @@ void Widget::load(const QVariant &data)
         ui->tableWidget->item(i, 5)->setData(Qt::DisplayRole, type);
     }
 
+    const auto reportHeader = data.toMap()["报表名称"].toString();
     const auto productName = data.toMap()["所属产品名称"].toString();
     const auto processName = data.toMap()["所属工艺名称"].toString();
     const auto workStationNum = data.toMap()["工站号"].toString();
@@ -103,6 +105,7 @@ void Widget::load(const QVariant &data)
     const auto measureFunc = data.toMap()["测量方法"].toString();
     const auto dataUnit = data.toMap()["数据单位"].toString();
 
+    ui->label_title->setText(reportHeader);
     ui->label_product_name->setText(productName);
     ui->label_process_name->setText(processName);
     ui->label_workStationNum->setText(workStationNum);
@@ -111,4 +114,14 @@ void Widget::load(const QVariant &data)
     ui->label_measure_man->setText(measureMan);
     ui->label_measure_func->setText(measureFunc);
     ui->label_data_unit->setText(dataUnit);
+}
+
+void ReportTableWidget::setReportHeader(const QString &title)
+{
+    ui->label_title->setText(title);
+}
+
+QString ReportTableWidget::reportHeader() const
+{
+    return ui->label_title->text();
 }

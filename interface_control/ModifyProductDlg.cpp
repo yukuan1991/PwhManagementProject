@@ -25,6 +25,7 @@ void ModifyProductDlg::load(const QVariant &data)
     {
         return;
     }
+
     const auto station = data.toMap()["工站号"].toString();
     const auto taskMan = data.toMap()["作业员"].toString();
     const auto measureDate = data.toMap()["测量日期"].toString();
@@ -54,3 +55,4 @@ QVariant ModifyProductDlg::dump()
 
     return currentInfo_;
 }
+
