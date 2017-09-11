@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui avwidgets
+QT       += core gui avwidgets printsupport
 CONFIG   -= c++11
 QMAKE_CXXFLAGS += -std=c++1z
 
@@ -62,8 +62,9 @@ SOURCES += main.cc\
     Model/TreeItem.cpp \
     interface_control/ModifyProductDlg.cpp \
     interface_control/AddtoStdDatabaseDlg.cpp \
-    interface_control/widget.cpp \
-    interface_control/JsonTree.cc
+    interface_control/JsonTree.cc \
+    interface_control/ReportTableWidget.cpp \
+    interface_control/DetailedInfoTable.cpp
 
 HEADERS  += PwhManagementMain.h \
     Pwh/PwhManagement.h \
@@ -105,8 +106,9 @@ HEADERS  += PwhManagementMain.h \
     Model/TreeItem.h \
     interface_control/ModifyProductDlg.h \
     interface_control/AddtoStdDatabaseDlg.h \
-    interface_control/widget.h \
-    interface_control/JsonTree.h
+    interface_control/JsonTree.h \
+    interface_control/ReportTableWidget.h \
+    interface_control/DetailedInfoTable.h
 
 FORMS    += pwhmanagementmain.ui \
     Pwh/pwhmanagement.ui \
@@ -120,7 +122,7 @@ FORMS    += pwhmanagementmain.ui \
     video/video_widget.ui \
     interface_control/modifyproductdlg.ui \
     interface_control/addtostddatabasedlg.ui \
-    interface_control/widget.ui
+    interface_control/ReportTableWidget.ui
 
 LIBS += -lboost_filesystem
 LIBS += -lboost_system

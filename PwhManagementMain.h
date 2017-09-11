@@ -23,6 +23,8 @@ private:
     void detailedInfo();
     void modifyClicked();
     void addStdDatabase();
+    void exportPDF();
+    void reportHeader();
 private:
     void initConn();
 private:

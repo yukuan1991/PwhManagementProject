@@ -4,6 +4,9 @@
 #include <boost/range/adaptors.hpp>
 #include <base/io/file/file.hpp>
 #include "interface_control/ModifyProductDlg.h"
+#include "interface_control/DetailedInfoTable.h"
+#include <QFile>
+#include <QJsonDocument>
 
 void setStyle ()
 {
@@ -37,6 +40,19 @@ int main(int argc, char *argv[])
 
 //    ModifyProductDlg dlg;
 //    dlg.show();
+    DetailedInfoTable d;
+    QFile file("1.modaf");
+    file.open(QIODevice::ReadOnly);
+    const auto data = file.readAll();
+    QJsonParseError error;
+    auto document = QJsonDocument::fromJson(data, &error);
+    if(error.error == QJsonParseError::NoError)
+    {
+        const auto formData = document.toVariant();
+        d.load("预定工时法", formData);
+    }
+
+    d.show();
 
     return a.exec();
 }

@@ -34,8 +34,9 @@ INPUT(
 ./debug\TreeItem.o
 ./debug\ModifyProductDlg.o
 ./debug\AddtoStdDatabaseDlg.o
-./debug\widget.o
 ./debug\JsonTree.o
+./debug\ReportTableWidget.o
+./debug\DetailedInfoTable.o
 ./debug\moc_PwhManagementMain.o
 ./debug\moc_PwhManagement.o
 ./debug\moc_json_model.o
@@ -60,6 +61,6 @@ INPUT(
 ./debug\moc_TreeModel.o
 ./debug\moc_ModifyProductDlg.o
 ./debug\moc_AddtoStdDatabaseDlg.o
-./debug\moc_widget.o
 ./debug\moc_JsonTree.o
+./debug\moc_ReportTableWidget.o
 );

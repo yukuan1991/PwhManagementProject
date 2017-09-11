@@ -6,6 +6,7 @@
 #include "Model/product_structure_model.h"
 #include "Qt-Utils/json.hpp"
 #include "interface_control/detail_dlg.h"
+#include "interface_control/DetailedInfoTable.h"
 
 namespace Ui {
 class PwhManagement;
@@ -25,6 +26,8 @@ public:
     void on_button_detail_clicked();
     void on_button_modify_clicked();
     void on_button_addStdDatabase_clicked();
+    void on_button_exportDF_clicked();
+    void on_button_reportHeader_clicked();
 private slots:
     void on_tree_product_clicked(const QModelIndex& index);
     void onTreeProductClicked(const QVariant&);
@@ -53,6 +56,7 @@ private:
     QString current_file_name_;
     QString current_method_;
     detail_dlg dlg_;
+    DetailedInfoTable detailedInfoTable_;
     int circulation_ordinal_number_ = -1;
 private:
     Ui::PwhManagement *ui;

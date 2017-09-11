@@ -200,6 +200,7 @@ Makefile: PwhManagementProject.pro ../../../qt-build/qt/mkspecs/win32-g++/qmake.
 		PwhManagementProject.pro \
 		../../../qt-build/qt/lib/qtmaind.prl \
 		../../../qt-build/qt/lib/Qt5OpenGL.prl \
+		../../../qt-build/qt/lib/Qt5PrintSupport.prl \
 		../../../qt-build/qt/lib/Qt5Widgets.prl \
 		../../../qt-build/qt/lib/Qt5Gui.prl \
 		../../../qt-build/qt/lib/Qt5Core.prl
@@ -343,6 +344,7 @@ Makefile: PwhManagementProject.pro ../../../qt-build/qt/mkspecs/win32-g++/qmake.
 PwhManagementProject.pro:
 ../../../qt-build/qt/lib/qtmaind.prl:
 ../../../qt-build/qt/lib/Qt5OpenGL.prl:
+../../../qt-build/qt/lib/Qt5PrintSupport.prl:
 ../../../qt-build/qt/lib/Qt5Widgets.prl:
 ../../../qt-build/qt/lib/Qt5Gui.prl:
 ../../../qt-build/qt/lib/Qt5Core.prl:

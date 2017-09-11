@@ -23,8 +23,8 @@
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "interface_control/JsonTree.h"
+#include "interface_control/ReportTableWidget.h"
 #include "interface_control/global_widget.h"
-#include "interface_control/widget.h"
 #include "video/video_widget.h"
 
 QT_BEGIN_NAMESPACE
@@ -60,7 +60,7 @@ public:
     QLabel *label_unit;
     QSpacerItem *horizontalSpacer_2;
     global_widget *widget_global;
-    Widget *widget;
+    ReportTableWidget *reportWidget;
 
     void setupUi(QWidget *PwhManagement)
     {
@@ -207,10 +207,10 @@ public:
 
         verticalLayout->addWidget(widget_global);
 
-        widget = new Widget(PwhManagement);
-        widget->setObjectName(QStringLiteral("widget"));
+        reportWidget = new ReportTableWidget(PwhManagement);
+        reportWidget->setObjectName(QStringLiteral("reportWidget"));
 
-        verticalLayout->addWidget(widget);
+        verticalLayout->addWidget(reportWidget);
 
 
         horizontalLayout->addLayout(verticalLayout);

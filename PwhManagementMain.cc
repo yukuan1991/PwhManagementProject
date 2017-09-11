@@ -27,7 +27,6 @@ void PwhManagementMain::fileNew()
 
 void PwhManagementMain::detailedInfo()
 {
-    qDebug() << "detailedInfo";
     auto w = activeWindow();
     if(w == nullptr)
     {
@@ -59,13 +58,36 @@ void PwhManagementMain::addStdDatabase()
     w->on_button_addStdDatabase_clicked();
 }
 
+void PwhManagementMain::exportPDF()
+{
+    auto w = activeWindow();
+    if(w == nullptr)
+    {
+        return;
+    }
+
+    w->on_button_exportDF_clicked();
+}
+
+void PwhManagementMain::reportHeader()
+{
+    auto w = activeWindow();
+    if(w == nullptr)
+    {
+        return;
+    }
+
+    w->on_button_reportHeader_clicked();
+}
+
 void PwhManagementMain::initConn()
 {
     connect(ui->rib, &PwhManagementRibbon::fileNew, this, &PwhManagementMain::fileNew);
     connect(ui->rib, &PwhManagementRibbon::detailedInfoClicked, this, &PwhManagementMain::detailedInfo);
     connect(ui->rib, &PwhManagementRibbon::modifyClicked, this, &PwhManagementMain::modifyClicked);
     connect(ui->rib, &PwhManagementRibbon::addStdDatabaseClicked, this, &PwhManagementMain::addStdDatabase);
-
+    connect(ui->rib, &PwhManagementRibbon::exportPDFClicked, this, &PwhManagementMain::exportPDF);
+    connect(ui->rib, &PwhManagementRibbon::reportHeaderClicked, this, &PwhManagementMain::reportHeader);
 
 }
 
@@ -73,15 +95,11 @@ not_null<PwhManagement *> PwhManagementMain::createWindow()
 {
     auto ptr_win = make_unique<PwhManagement> ();
 
-    qDebug () << __PRETTY_FUNCTION__ << " " << __LINE__;
     ptr_win->setAttribute(Qt::WA_DeleteOnClose);
 
-    qDebug () << __PRETTY_FUNCTION__ << " " << __LINE__;
     auto w = ui->mdi->addSubWindow(ptr_win.get());
 
-    qDebug () << __PRETTY_FUNCTION__ << " " << __LINE__;
     w->setWindowState(Qt::WindowMaximized);
-    qDebug () << __PRETTY_FUNCTION__ << " " << __LINE__;
 
     return ptr_win.release();
 }

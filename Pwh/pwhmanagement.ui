@@ -198,7 +198,7 @@
       <widget class="global_widget" name="widget_global" native="true"/>
      </item>
      <item>
-      <widget class="Widget" name="widget" native="true"/>
+      <widget class="ReportTableWidget" name="reportWidget" native="true"/>
      </item>
     </layout>
    </item>
@@ -218,9 +218,9 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>Widget</class>
+   <class>ReportTableWidget</class>
    <extends>QWidget</extends>
-   <header>interface_control/widget.h</header>
+   <header>interface_control/ReportTableWidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>

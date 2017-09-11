@@ -11,6 +11,10 @@
 #include <QJsonDocument>
 #include "interface_control/ModifyProductDlg.h"
 #include "interface_control/AddtoStdDatabaseDlg.h"
+#include <QFileDialog>
+#include <QtPrintSupport/QPrinter>
+#include <QPainter>
+#include <QInputDialog>
 
 #include <QDebug>
 
@@ -44,6 +48,16 @@ PwhManagement::PwhManagement(QWidget *parent) :
     {
         ui->widget_video_player->set_position(end);
     });
+
+//    JsonTree tree;
+//    tree.show ();
+    QVariantList list;
+    list << "名称" << "类型";
+    ui->treeWidget->setTreeHeader (list);
+    QFile file ("test.json");
+    file.open (QFile::ReadOnly);
+    const auto arr = file.readAll ();
+    ui->treeWidget->setTreeData (QJsonDocument::fromJson (arr).toVariant ());
 
 //    onTreeProductClicked();
 }
@@ -132,9 +146,11 @@ void PwhManagement::onTreeProductClicked(const QVariant& data)
 
 void PwhManagement::on_button_detail_clicked()
 {
-    dlg_.init_info (current_info_);
+//    dlg_.init_info (current_info_);
 
-    dlg_.exec ();
+//    dlg_.exec ();
+      detailedInfoTable_.show();
+
 }
 
 void PwhManagement::on_button_modify_clicked()
@@ -175,6 +191,50 @@ void PwhManagement::on_button_addStdDatabase_clicked()
     if(QDialog::Accepted == dlg.exec())
     {
         dlg.dump();
+    }
+}
+
+void PwhManagement::on_button_exportDF_clicked()
+{
+    const auto saveFileName = QFileDialog::getSaveFileName(nullptr, "生成PDF", "PwhContrast File", "*.pdf");
+    if(saveFileName.isEmpty())
+    {
+        return;
+    }
+
+    QPrinter printerPixmap(QPrinter::HighResolution);
+    printerPixmap.setPageSize(QPrinter::A4);  //设置纸张大小为A4
+    printerPixmap.setOutputFormat(QPrinter::PdfFormat);  //设置输出格式为pdf
+    printerPixmap.setOutputFileName(saveFileName);   //设置输出路径
+    QPixmap pixmap = ui->reportWidget->grab();
+
+    QPainter painterPixmap;
+    painterPixmap.begin(&printerPixmap);
+    QRect rect = painterPixmap.viewport();
+    int multiple = rect.width()/pixmap.width();
+    painterPixmap.scale(multiple, multiple); //将图像(所有要画的东西)在pdf上放大multiple-1倍
+    painterPixmap.drawPixmap(0, 0, pixmap);  //画图
+    painterPixmap.end();
+}
+
+void PwhManagement::on_button_reportHeader_clicked()
+{
+    const auto oldTitle = ui->reportWidget->reportHeader();
+    QInputDialog dlg;
+    dlg.setWindowTitle("表头设置");
+    dlg.setLabelText("请输入表头数据:");
+    dlg.setTextValue(oldTitle);
+
+
+    if(QDialog::Accepted == dlg.exec())
+    {
+        if(dlg.textValue().isEmpty())
+        {
+            QMessageBox::information(this, "提示", "报表名称为空！");
+            return;
+        }
+
+        ui->reportWidget->setReportHeader(dlg.textValue());
     }
 }
 
